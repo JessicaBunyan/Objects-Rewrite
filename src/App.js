@@ -19,7 +19,7 @@ class App extends Component {
     super(props);
     this.state = {
       inv: [],
-      squareSize: 
+      squareSize: 1
     };
   }
   render() {
