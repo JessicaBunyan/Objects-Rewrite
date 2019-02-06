@@ -12,12 +12,14 @@ import { Inventory } from "./Inventory";
 import { Var } from "./Var";
 import { Parameter } from "./Parameter";
 import _ from "underscore";
+import { randInt } from "./utils";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inv: []
+      inv: [],
+      squareSize: 
     };
   }
   render() {
@@ -32,10 +34,10 @@ class App extends Component {
         <Nav>
           <Scene>
             <Avatar img={questionMark} />
-            <Pillar onClick={() => this.addItemToInv(2)} />
+            <Pillar onClick={() => this.addItemToInv(randInt(1, 10))} />
           </Scene>
           <Scene>
-            <Avatar img={square} />
+            <Avatar img={square} width={100 * this.state.squareSize} />
             <Pillar onClick={v => this.setState({ squareSize: v })}>
               <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
             </Pillar>
