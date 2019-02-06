@@ -1,3 +1,5 @@
+@import "variables.less";
+
 .scene.nav-scene {
   .scene {
     cursor: pointer;
@@ -9,6 +11,10 @@
     &.active {
       z-index: 9;
       transform: none !important;
+
+      .footer img.back-chevron {
+        display: block;
+      }
     }
   }
 
