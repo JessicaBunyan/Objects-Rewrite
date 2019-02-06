@@ -57,15 +57,21 @@ img {
   background: white;
   border: solid 4px black;
 }
-.variable.number {
-  background: red;
-  width: 50px;
-  height: 50px;
-  display: inline-block;
+.variable {
   margin: 10px;
-}
+  text-align: center;
+  display: inline-block;
+  &.number {
+    border: solid 1px black;
+    // background: red;
+    line-height: 50px;
 
-.variable.colour {
-  width: 100px;
-  height: 30px;
+    width: 50px;
+    height: 50px;
+  }
+
+  &.colour {
+    width: 100px;
+    height: 30px;
+  }
 }
