@@ -8,7 +8,7 @@ export class Parameter extends Component {
         onDrop={event => this.drop(event)}
         onDragOver={event => this.allowDrop(event)}
       >
-        {React.cloneElemwent(this.props.children, { draggable: false })}
+        {React.cloneElement(this.props.children, { draggable: false })}
         {/* {this.props.children} */}
       </div>
     );
