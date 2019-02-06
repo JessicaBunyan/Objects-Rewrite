@@ -63,7 +63,9 @@ class App extends Component {
           <Scene>
             <Pillar
               text="Make Colour"
-              onClick={params => this.addItemToInv(params, "colour")}
+              onClick={params =>
+                this.addItemToInv(_.map(params, p => p.value), "colour")
+              }
             >
               <Parameter
                 type="number"
