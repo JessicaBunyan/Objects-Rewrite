@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import postbox from "./img/postboxGrey.png";
 import { Button } from "./Button";
+import { Var } from "./Var";
 
 export class Pillar extends Component {
   constructor(props) {
@@ -15,12 +16,18 @@ export class Pillar extends Component {
     return (
       <div className="pillar-region">
         <img src={postbox} />
+
         {React.Children.map(this.props.children, (child, index) => {
           console.log("index: " + index);
-          return React.cloneElement(child, {
-            updateState: v => this.updateParamVal(index, v)
-          });
+          return React.cloneElement(
+            child,
+            {
+              updateState: v => this.updateParamVal(index, v)
+            },
+            <Var value={this.state.params[index]} />
+          );
         })}
+
         <Button onClick={() => this.triggerOnClick()}>
           {" "}
           <h2>DO stuff</h2>

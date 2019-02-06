@@ -11,6 +11,7 @@ import { Button } from "./Button";
 import { Inventory } from "./Inventory";
 import { Var } from "./Var";
 import { Parameter } from "./Parameter";
+import _ from "underscore";
 
 class App extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class App extends Component {
           <Scene>
             <Avatar img={square} />
             <Pillar onClick={v => this.setState({ squareSize: v })}>
-              <Parameter />
+              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
             </Pillar>
           </Scene>
         </Nav>
@@ -48,6 +49,13 @@ class App extends Component {
     console.log(this.state.inv);
     var newInv = this.state.inv;
     newInv.push(item);
+    this.setState({ inv: newInv });
+  }
+  removeItemFromInv(val) {
+    console.log("in remoev item rfom inv: " + val);
+    console.log(this.state.inv);
+    let newInv = this.state.inv;
+    newInv = _.reject(newInv, i => i == val);
     this.setState({ inv: newInv });
   }
 }

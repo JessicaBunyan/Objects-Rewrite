@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 export class Var extends Component {
   render() {
+    if (!this.props.value) {
+      return null;
+    }
     return (
       <div
         draggable="true"

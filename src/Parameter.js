@@ -8,7 +8,7 @@ export class Parameter extends Component {
         onDrop={event => this.drop(event)}
         onDragOver={event => this.allowDrop(event)}
       >
-        {this.props.value}
+        {this.props.children}
       </div>
     );
   }
@@ -26,6 +26,7 @@ export class Parameter extends Component {
 
     // var obj = varFac.reconstructVar(json)
 
+    this.props.removeFromInv(val);
     this.props.updateState(val);
   }
 }
