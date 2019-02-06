@@ -11,18 +11,26 @@ import { Inventory } from "./Inventory";
 import { Var } from "./Var";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inv: []
+    };
+  }
   render() {
     return (
       <div className="App">
         <Inventory>
-          <Var value="3" />
+          {this.state.inv.map((item, index) => {
+            return <Var key={index} value={item} />;
+          })}
         </Inventory>
 
         <Nav>
           <Scene>
             <Avatar img={square} />
             <Pillar>
-              <Button>
+              <Button onClick={() => this.addItemToInv(2)}>
                 <span>new</span>
               </Button>
             </Pillar>
@@ -31,6 +39,13 @@ class App extends Component {
         </Nav>
       </div>
     );
+  }
+
+  addItemToInv(item) {
+    console.log(this.state.inv);
+    var newInv = this.state.inv;
+    newInv.push(item);
+    this.setState({ inv: newInv });
   }
 }
 
