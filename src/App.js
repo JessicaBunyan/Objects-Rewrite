@@ -41,14 +41,13 @@ class App extends Component {
 
         <Nav>
           <Scene>
-            <Avatar img={questionMark} />
             <Pillar
               text="Get Number"
               onClick={() => this.addItemToInv(randInt(1, 10))}
             />
+            <Avatar img={questionMark} />
           </Scene>
           <Scene>
-            <Avatar img={square} width={20 * this.state.squareSize} />
             <Pillar
               text="Set Size"
               onClick={params => this.setState({ squareSize: params[0].value })}
@@ -58,10 +57,10 @@ class App extends Component {
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
+            <Avatar img={square} width={20 * this.state.squareSize} />
           </Scene>
 
           <Scene>
-            <Avatar img={paintbrush} />
             <Pillar
               text="Make Colour"
               onClick={params => this.addItemToInv(params, "colour")}
@@ -79,6 +78,13 @@ class App extends Component {
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
+            <Pillar text="Paint" onClick={() => console.log("on click")}>
+              <Parameter
+                type="colour"
+                removeFromInv={v => this.removeItemFromInv(v)}
+              />
+            </Pillar>
+            <Avatar img={paintbrush} />
           </Scene>
         </Nav>
       </div>

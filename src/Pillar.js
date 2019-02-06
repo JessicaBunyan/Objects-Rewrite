@@ -29,7 +29,6 @@ export class Pillar extends Component {
         })}
 
         <Button onClick={() => this.triggerOnClick()}>
-          {" "}
           <h2>{this.props.text}</h2>
         </Button>
       </div>

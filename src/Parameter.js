@@ -4,7 +4,7 @@ export class Parameter extends Component {
   render() {
     return (
       <div
-        className="parameter number"
+        className={"parameter " + this.props.type}
         onDrop={event => this.drop(event)}
         onDragOver={event => this.allowDrop(event)}
       >
@@ -33,7 +33,8 @@ export class Parameter extends Component {
       this.props.removeFromInv(v.id);
       this.props.updateState(v);
     } else {
-      //tood
+      console.log("wrong type");
+      //todo
     }
   }
 }
