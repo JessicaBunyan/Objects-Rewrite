@@ -37,7 +37,7 @@ class App extends Component {
             <Pillar onClick={() => this.addItemToInv(randInt(1, 10))} />
           </Scene>
           <Scene>
-            <Avatar img={square} width={100 * this.state.squareSize} />
+            <Avatar img={square} width={20 * this.state.squareSize} />
             <Pillar onClick={v => this.setState({ squareSize: v })}>
               <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
             </Pillar>
