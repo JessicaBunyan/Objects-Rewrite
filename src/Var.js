@@ -10,15 +10,10 @@ export class Var extends Component {
 
     var v = this.props.var;
 
-    var markup =
-      v.type == "number" ? (
-        v.value
-      ) : (
-        <img class="colour-drop" src={colourDrop} />
-      );
+    var markup = v.type == "number" ? v.value : "";
     var styles =
       v.type == "colour"
-        ? { background: calcColour(this.props.var.value) }
+        ? { backgroundColor: calcColour(this.props.var.value) }
         : {};
     return (
       <div
