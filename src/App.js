@@ -10,6 +10,7 @@ import questionMark from "./img/questionman.png";
 import { Button } from "./Button";
 import { Inventory } from "./Inventory";
 import { Var } from "./Var";
+import { Parameter } from "./Parameter";
 
 class App extends Component {
   constructor(props) {
@@ -30,15 +31,13 @@ class App extends Component {
         <Nav>
           <Scene>
             <Avatar img={questionMark} />
-            <Pillar>
-              <Button onClick={() => this.addItemToInv(2)}>
-                <span>new</span>
-              </Button>
-            </Pillar>
+            <Pillar onClick={() => this.addItemToInv(2)} />
           </Scene>
           <Scene>
             <Avatar img={square} />
-            <Pillar onClick={v => this.setState({ squareSize: v })} />
+            <Pillar onClick={v => this.setState({ squareSize: v })}>
+              <Parameter />
+            </Pillar>
           </Scene>
         </Nav>
       </div>

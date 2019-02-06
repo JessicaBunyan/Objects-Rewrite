@@ -2,7 +2,15 @@ import React, { Component } from "react";
 
 export class Parameter extends Component {
   render() {
-    return <div className="parameter number">{this.props.value}</div>;
+    return (
+      <div
+        className="parameter number"
+        onDrop={event => this.drop(event)}
+        onDragOver={event => this.allowDrop(event)}
+      >
+        {this.props.value}
+      </div>
+    );
   }
 
   allowDrop(ev) {
