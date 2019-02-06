@@ -19,7 +19,6 @@ var colour = {
   id: 99999,
   type: "colour",
   value: [9, 2, 9]
-  // removeFromPrevLocation: () => this.removeItemFromInv(id)
 };
 
 class App extends Component {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { calcColour } from "./utils";
+import colourDrop from "./img/colourDrop.png";
 
 export class Var extends Component {
   render() {
@@ -9,7 +10,12 @@ export class Var extends Component {
 
     var v = this.props.var;
 
-    var markup = v.type == "number" ? v.value : "colour";
+    var markup =
+      v.type == "number" ? (
+        v.value
+      ) : (
+        <img class="colour-drop" src={colourDrop} />
+      );
     var styles =
       v.type == "colour"
         ? { background: calcColour(this.props.var.value) }
