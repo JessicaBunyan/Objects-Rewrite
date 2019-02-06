@@ -1,11 +1,15 @@
 @import "variables.less";
 
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
 .scene {
   position: absolute;
   display: inline-block;
   transition: all 2s ease;
   border-radius: 20px;
-  border: double 12px black;
+  border: double @sceneBorderWidth black;
 
   background: #fff;
 
@@ -28,7 +32,8 @@
 
   .avatar {
     position: absolute;
-    right: 0px;
+    bottom: 200px;
+    right: 30px;
   }
 }
 
