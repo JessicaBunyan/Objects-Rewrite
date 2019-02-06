@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "./css/index.css";
 import { Scene } from "./Scene";
 import { Nav } from "./Nav";
 import { Avatar } from "./Avatar";
