@@ -1,8 +1,7 @@
 @import "variables.less";
 
-* {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+.App {
+  position: relative;
 }
 .scene {
   position: absolute;
@@ -25,7 +24,7 @@
   .footer {
     width: 100%;
     height: @footerHeight;
-    background: #ccc;
+    background: #eee;
     bottom: 0px;
     position: absolute;
   }
@@ -57,17 +56,16 @@ img.colour-drop {
 
 .inventory {
   width: 50%;
-  top: 100px;
   position: absolute;
-
   left: 25%;
   font-size: 26px;
-  height: 100px;
+  height: @inventoryHeight;
   z-index: 99;
   background: white;
   border: solid 4px black;
 }
 .variable {
+  vertical-align: top;
   margin: 10px;
   text-align: center;
   display: inline-block;
