@@ -7,6 +7,7 @@ import { Avatar } from "./Avatar";
 import { Pillar } from "./Pillar";
 import square from "./img/square.png";
 import questionMark from "./img/questionman.png";
+import paintbrush from "./img/Paintbrush.png";
 import { Button } from "./Button";
 import { Inventory } from "./Inventory";
 import { Var } from "./Var";
@@ -44,6 +45,15 @@ class App extends Component {
               <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
             </Pillar>
           </Scene>
+
+          <Scene>
+            <Avatar img={paintbrush} />
+            <Pillar onClick={params => this.addItemToInv(4)}>
+              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
+              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
+              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
+            </Pillar>
+          </Scene>
         </Nav>
       </div>
     );
@@ -54,6 +64,7 @@ class App extends Component {
     var newInv = this.state.inv;
     var variable = {
       id: newVarId(),
+      type: "number",
       value: item
     };
     newInv.push(variable);

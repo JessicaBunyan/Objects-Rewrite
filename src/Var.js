@@ -9,7 +9,7 @@ export class Var extends Component {
       <div
         draggable="true"
         onDragStart={event => this.drag(event)}
-        className="variable"
+        className={"variable " + this.props.var.type}
         id={"var_" + this.props.var.id}
       >
         {this.props.var.value}
