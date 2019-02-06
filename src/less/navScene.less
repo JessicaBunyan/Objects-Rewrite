@@ -1,6 +1,11 @@
 .scene.nav-scene {
   .scene {
     cursor: pointer;
+
+    &.active {
+      z-index: 9;
+      transform: none !important;
+    }
   }
 
   &.c1 {
