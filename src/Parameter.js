@@ -3,13 +3,17 @@ import React, { Component } from "react";
 export class Parameter extends Component {
   render() {
     return (
-      <div
-        className={"parameter " + this.props.type}
-        onDrop={event => this.drop(event)}
-        onDragOver={event => this.allowDrop(event)}
-      >
-        {React.cloneElement(this.props.children, { draggable: false })}
-        {/* {this.props.children} */}
+      <div className="param-container">
+        <div className="label">
+          <h3>{this.props.label}</h3>{" "}
+        </div>
+        <div
+          className={"parameter " + this.props.type}
+          onDrop={event => this.drop(event)}
+          onDragOver={event => this.allowDrop(event)}
+        >
+          {React.cloneElement(this.props.children, { draggable: false })}
+        </div>
       </div>
     );
   }

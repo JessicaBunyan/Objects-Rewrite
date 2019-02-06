@@ -16,17 +16,18 @@ export class Pillar extends Component {
     return (
       <div className="pillar-region">
         <img src={postbox} />
-
-        {React.Children.map(this.props.children, (child, index) => {
-          console.log("index: " + index);
-          return React.cloneElement(
-            child,
-            {
-              updateState: v => this.updateParamVal(index, v)
-            },
-            <Var var={this.state.params[index]} />
-          );
-        })}
+        <div className="param-region">
+          {React.Children.map(this.props.children, (child, index) => {
+            console.log("index: " + index);
+            return React.cloneElement(
+              child,
+              {
+                updateState: v => this.updateParamVal(index, v)
+              },
+              <Var var={this.state.params[index]} />
+            );
+          })}
+        </div>
 
         <Button onClick={() => this.triggerOnClick()}>
           <h2>{this.props.text}</h2>

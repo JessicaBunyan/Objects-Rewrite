@@ -69,14 +69,17 @@ class App extends Component {
             >
               <Parameter
                 type="number"
+                label="Red"
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
               <Parameter
                 type="number"
+                label="Blue"
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
               <Parameter
                 type="number"
+                label="Green"
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
