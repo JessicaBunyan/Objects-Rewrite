@@ -20,13 +20,16 @@ export class Parameter extends Component {
 
   drop(ev) {
     ev.preventDefault();
-    var val = ev.dataTransfer.getData("objects/variable");
+    var v = ev.dataTransfer.getData("objects/variable");
+    v = JSON.parse(v);
 
     console.log("in drop in param");
+    console.log(v);
+    console.log(v.id);
 
     // var obj = varFac.reconstructVar(json)
 
-    this.props.removeFromInv(val);
-    this.props.updateState(val);
+    this.props.removeFromInv(v);
+    this.props.updateState(v);
   }
 }

@@ -12,7 +12,7 @@ import { Inventory } from "./Inventory";
 import { Var } from "./Var";
 import { Parameter } from "./Parameter";
 import _ from "underscore";
-import { randInt } from "./utils";
+import { randInt, newVarId } from "./utils";
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class App extends Component {
       <div className="App">
         <Inventory>
           {this.state.inv.map((item, index) => {
-            return <Var key={index} value={item} />;
+            return <Var key={index} var={item} />;
           })}
         </Inventory>
 
@@ -38,7 +38,9 @@ class App extends Component {
           </Scene>
           <Scene>
             <Avatar img={square} width={20 * this.state.squareSize} />
-            <Pillar onClick={v => this.setState({ squareSize: v })}>
+            <Pillar
+              onClick={params => this.setState({ squareSize: params[0].value })}
+            >
               <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
             </Pillar>
           </Scene>
@@ -50,14 +52,18 @@ class App extends Component {
   addItemToInv(item) {
     console.log(this.state.inv);
     var newInv = this.state.inv;
-    newInv.push(item);
+    var variable = {
+      id: newVarId(),
+      value: item
+    };
+    newInv.push(variable);
     this.setState({ inv: newInv });
   }
-  removeItemFromInv(val) {
-    console.log("in remoev item rfom inv: " + val);
+  removeItemFromInv(v) {
+    console.log("in remoev item rfom inv: " + v);
     console.log(this.state.inv);
     let newInv = this.state.inv;
-    newInv = _.reject(newInv, i => i == val);
+    newInv = _.reject(newInv, i => i.id == v.id);
     this.setState({ inv: newInv });
   }
 }

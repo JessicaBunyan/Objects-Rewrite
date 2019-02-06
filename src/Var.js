@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export class Var extends Component {
   render() {
-    if (!this.props.value) {
+    if (!this.props.var) {
       return null;
     }
     return (
@@ -10,14 +10,14 @@ export class Var extends Component {
         draggable="true"
         onDragStart={event => this.drag(event)}
         className="variable"
+        id={"var_" + this.props.var.id}
       >
-        {this.props.value}
+        {this.props.var.value}
       </div>
     );
   }
 
   drag(ev) {
-    const val = this.props.value;
-    ev.dataTransfer.setData("objects/variable", val);
+    ev.dataTransfer.setData("objects/variable", JSON.stringify(this.props.var));
   }
 }

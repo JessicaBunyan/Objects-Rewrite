@@ -24,7 +24,7 @@ export class Pillar extends Component {
             {
               updateState: v => this.updateParamVal(index, v)
             },
-            <Var value={this.state.params[index]} />
+            <Var var={this.state.params[index]} />
           );
         })}
 
@@ -63,6 +63,7 @@ export class Pillar extends Component {
     }
 
     if (!this.props.children) {
+      console.log("0 args required - calling func ");
       this.props.onClick();
       return;
     }
@@ -70,6 +71,7 @@ export class Pillar extends Component {
     console.log(React.Children.count(this.props.children));
     console.log(this.state.params.length);
     if (React.Children.count(this.props.children) === this.countParams()) {
+      console.log("correct args present, calling func");
       this.props.onClick(this.state.params);
       this.resetParams();
     } else {
