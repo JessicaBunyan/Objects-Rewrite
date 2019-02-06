@@ -3,7 +3,7 @@ import backChevron from "./img/back-chevron.png";
 
 const SceneFooter = ({ action }) => (
   <div className="footer" onClick={() => action()}>
-    <img class="back-chevron" src={backChevron} />
+    <img className="back-chevron" src={backChevron} />
   </div>
 );
 

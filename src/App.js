@@ -8,6 +8,7 @@ import { Pillar } from "./Pillar";
 import square from "./img/square.png";
 import questionMark from "./img/questionman.png";
 import paintbrush from "./img/Paintbrush.png";
+import paintSquiggle from "./img/paintsquiggle.png";
 import { Button } from "./Button";
 import { Inventory } from "./Inventory";
 import { Var } from "./Var";
@@ -61,7 +62,7 @@ class App extends Component {
             <Avatar img={square} width={20 * this.state.squareSize} />
           </Scene>
 
-          <Scene bgColour={this.state.bgColour}>
+          <Scene bgColour={this.state.bgColour} bgImage={paintSquiggle}>
             <Pillar
               text="Make Colour"
               onClick={params =>
