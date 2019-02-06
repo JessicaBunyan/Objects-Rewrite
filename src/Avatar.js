@@ -4,7 +4,7 @@ export class Avatar extends Component {
   render() {
     return (
       <div className="avatar">
-        <img href={this.props.imgref} />
+        <img src={this.props.img} />
       </div>
     );
   }
