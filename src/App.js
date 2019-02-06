@@ -6,6 +6,7 @@ import { Nav } from "./Nav";
 import { Avatar } from "./Avatar";
 import { Pillar } from "./Pillar";
 import square from "./img/square.png";
+import questionMark from "./img/questionman.png";
 import { Button } from "./Button";
 import { Inventory } from "./Inventory";
 import { Var } from "./Var";
@@ -28,14 +29,17 @@ class App extends Component {
 
         <Nav>
           <Scene>
-            <Avatar img={square} />
+            <Avatar img={questionMark} />
             <Pillar>
               <Button onClick={() => this.addItemToInv(2)}>
                 <span>new</span>
               </Button>
             </Pillar>
           </Scene>
-          <Scene />
+          <Scene>
+            <Avatar img={square} />
+            <Pillar onClick={v => this.setState({ squareSize: v })} />
+          </Scene>
         </Nav>
       </div>
     );

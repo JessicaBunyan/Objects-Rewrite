@@ -1,13 +1,10 @@
 .scene {
-  display: block;
+  display: inline-block;
   transition: all 2s ease;
 
   background: #fff;
-  width: 1200px;
-  height: 800px;
-  border-radius: 20px;
-  border: double 12px black;
-  position: absolute;
+  width: 500px;
+  height: 700px;
 
   overflow: hidden;
 }
@@ -18,6 +15,12 @@ img {
 }
 
 .nav-scene {
+  position: relative;
+  display: inline-block;
+  width: 1200px;
+  height: 800px;
+  border-radius: 20px;
+  border: double 12px black;
 }
 
 .inventory {
@@ -28,4 +31,16 @@ img {
   font-size: 26px;
   height: 100px;
   z-index: 99;
+
+  .variable {
+    background: red;
+    width: 40px;
+    display: inline-block;
+  }
+}
+
+.parameter {
+  width: 50px;
+  height: 50px;
+  background: blue;
 }
