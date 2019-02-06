@@ -15,11 +15,18 @@ import { Parameter } from "./Parameter";
 import _ from "underscore";
 import { randInt, newVarId } from "./utils";
 
+var colour = {
+  id: 99999,
+  type: "colour",
+  value: [9, 2, 9]
+  // removeFromPrevLocation: () => this.removeItemFromInv(id)
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inv: [],
+      inv: [colour],
       squareSize: 1
     };
   }
