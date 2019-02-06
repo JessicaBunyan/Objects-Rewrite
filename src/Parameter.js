@@ -29,7 +29,7 @@ export class Parameter extends Component {
     // var obj = varFac.reconstructVar(json)
 
     if (v.type == this.props.type) {
-      this.props.removeFromInv(v);
+      this.props.removeFromInv(v.id);
       this.props.updateState(v);
     } else {
       //tood

@@ -74,19 +74,21 @@ class App extends Component {
   addItemToInv(item, type = "number") {
     console.log(this.state.inv);
     var newInv = this.state.inv;
+    var id = newVarId();
     var variable = {
-      id: newVarId(),
+      id: id,
       type: type,
       value: item
+      // removeFromPrevLocation: () => this.removeItemFromInv(id)
     };
     newInv.push(variable);
     this.setState({ inv: newInv });
   }
-  removeItemFromInv(v) {
-    console.log("in remoev item rfom inv: " + v);
+  removeItemFromInv(vId) {
+    console.log("in remoev item rfom inv: " + vId);
     console.log(this.state.inv);
     let newInv = this.state.inv;
-    newInv = _.reject(newInv, i => i.id == v.id);
+    newInv = _.reject(newInv, i => i.id == vId);
     this.setState({ inv: newInv });
   }
 }
