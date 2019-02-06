@@ -54,6 +54,7 @@ class App extends Component {
             >
               <Parameter
                 type="number"
+                label="Size"
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
@@ -86,6 +87,7 @@ class App extends Component {
             <Pillar text="Paint" onClick={() => console.log("on click")}>
               <Parameter
                 type="colour"
+                label="Colour"
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
