@@ -42,16 +42,28 @@ class App extends Component {
             <Pillar
               onClick={params => this.setState({ squareSize: params[0].value })}
             >
-              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
+              <Parameter
+                type="number"
+                removeFromInv={v => this.removeItemFromInv(v)}
+              />
             </Pillar>
           </Scene>
 
           <Scene>
             <Avatar img={paintbrush} />
             <Pillar onClick={params => this.addItemToInv(params, "colour")}>
-              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
-              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
-              <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
+              <Parameter
+                type="number"
+                removeFromInv={v => this.removeItemFromInv(v)}
+              />
+              <Parameter
+                type="number"
+                removeFromInv={v => this.removeItemFromInv(v)}
+              />
+              <Parameter
+                type="number"
+                removeFromInv={v => this.removeItemFromInv(v)}
+              />
             </Pillar>
           </Scene>
         </Nav>

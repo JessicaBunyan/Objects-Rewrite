@@ -14,7 +14,6 @@ export class Parameter extends Component {
   }
 
   allowDrop(ev) {
-    console.log("in allow drop in method pill");
     ev.preventDefault();
   }
 
@@ -29,7 +28,11 @@ export class Parameter extends Component {
 
     // var obj = varFac.reconstructVar(json)
 
-    this.props.removeFromInv(v);
-    this.props.updateState(v);
+    if (v.type == this.props.type) {
+      this.props.removeFromInv(v);
+      this.props.updateState(v);
+    } else {
+      //tood
+    }
   }
 }

@@ -12,7 +12,8 @@ export class Var extends Component {
     return (
       <div
         draggable="true"
-        onDragStart={event => this.drag(event)}
+        onDragStart={event => this.dragStart(event)}
+        onDragEnd={event => this.dragEnd(event)}
         className={"variable " + v.type}
         id={"var_" + v.id}
       >
@@ -21,7 +22,9 @@ export class Var extends Component {
     );
   }
 
-  drag(ev) {
+  dragStart(ev) {
     ev.dataTransfer.setData("objects/variable", JSON.stringify(this.props.var));
   }
+
+  dragEnd(ev) {}
 }
