@@ -71,8 +71,17 @@ export class Pillar extends Component {
     console.log(this.state.params.length);
     if (React.Children.count(this.props.children) === this.countParams()) {
       this.props.onClick(this.state.params);
+      this.resetParams();
     } else {
       console.log("wrong params");
     }
+  }
+
+  resetParams() {
+    var params = [];
+    for (var i = 0; i < React.Children.count(this.props.children); i++) {
+      params.push("");
+    }
+    this.setState({ params: params });
   }
 }
