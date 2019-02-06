@@ -48,7 +48,7 @@ class App extends Component {
 
           <Scene>
             <Avatar img={paintbrush} />
-            <Pillar onClick={params => this.addItemToInv(4)}>
+            <Pillar onClick={params => this.addItemToInv(params, "colour")}>
               <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
               <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
               <Parameter removeFromInv={v => this.removeItemFromInv(v)} />
@@ -59,12 +59,12 @@ class App extends Component {
     );
   }
 
-  addItemToInv(item) {
+  addItemToInv(item, type = "number") {
     console.log(this.state.inv);
     var newInv = this.state.inv;
     var variable = {
       id: newVarId(),
-      type: "number",
+      type: type,
       value: item
     };
     newInv.push(variable);

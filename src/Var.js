@@ -5,14 +5,18 @@ export class Var extends Component {
     if (!this.props.var) {
       return null;
     }
+
+    var v = this.props.var;
+
+    var markup = v.type == "number" ? v.value : "colour";
     return (
       <div
         draggable="true"
         onDragStart={event => this.drag(event)}
-        className={"variable " + this.props.var.type}
-        id={"var_" + this.props.var.id}
+        className={"variable " + v.type}
+        id={"var_" + v.id}
       >
-        {this.props.var.value}
+        {markup}
       </div>
     );
   }
