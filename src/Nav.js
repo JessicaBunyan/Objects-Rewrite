@@ -13,10 +13,16 @@ export class Nav extends Component {
         }
       >
         {React.Children.map(this.props.children, (child, index) => {
+          var isActive = this.state.active == index;
           return React.cloneElement(child, {
             key: index,
-            active: this.state.active == index,
-            onClick: () => this.setState({ active: index })
+            active: isActive,
+            onClick: isActive
+              ? () => {
+                  return;
+                }
+              : () => this.setState({ active: index }),
+            deactivate: () => this.setState({ active: -1 })
           });
         })}
       </div>

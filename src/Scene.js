@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SceneFooter from "./SceneFooter";
 
 export class Scene extends Component {
   constructor(props) {
@@ -11,6 +12,8 @@ export class Scene extends Component {
         onClick={() => this.props.onClick()}
       >
         {this.props.children}
+
+        <SceneFooter action={this.props.deactivate} />
       </div>
     );
   }
