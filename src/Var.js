@@ -11,7 +11,7 @@ export class Var extends Component {
     var markup = v.type == "number" ? v.value : "colour";
     return (
       <div
-        draggable="true"
+        draggable={this.props.draggable}
         onDragStart={event => this.dragStart(event)}
         onDragEnd={event => this.dragEnd(event)}
         className={"variable " + v.type}
@@ -23,6 +23,9 @@ export class Var extends Component {
   }
 
   dragStart(ev) {
+    if (!this.props.draggable) {
+      return;
+    }
     ev.dataTransfer.setData("objects/variable", JSON.stringify(this.props.var));
   }
 

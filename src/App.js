@@ -28,7 +28,7 @@ class App extends Component {
       <div className="App">
         <Inventory>
           {this.state.inv.map((item, index) => {
-            return <Var key={index} var={item} />;
+            return <Var key={index} var={item} draggable={true} />;
           })}
         </Inventory>
 
