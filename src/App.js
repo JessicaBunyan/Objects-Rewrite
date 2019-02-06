@@ -42,11 +42,15 @@ class App extends Component {
         <Nav>
           <Scene>
             <Avatar img={questionMark} />
-            <Pillar onClick={() => this.addItemToInv(randInt(1, 10))} />
+            <Pillar
+              text="Get Number"
+              onClick={() => this.addItemToInv(randInt(1, 10))}
+            />
           </Scene>
           <Scene>
             <Avatar img={square} width={20 * this.state.squareSize} />
             <Pillar
+              text="Set Size"
               onClick={params => this.setState({ squareSize: params[0].value })}
             >
               <Parameter
@@ -58,7 +62,10 @@ class App extends Component {
 
           <Scene>
             <Avatar img={paintbrush} />
-            <Pillar onClick={params => this.addItemToInv(params, "colour")}>
+            <Pillar
+              text="Make Colour"
+              onClick={params => this.addItemToInv(params, "colour")}
+            >
               <Parameter
                 type="number"
                 removeFromInv={v => this.removeItemFromInv(v)}
