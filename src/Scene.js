@@ -9,6 +9,7 @@ export class Scene extends Component {
     return (
       <div
         className={"scene " + (this.props.active == true ? "active" : "")}
+        style={{ backgroundColor: this.props.bgColour }}
         onClick={() => this.props.onClick()}
       >
         {this.props.children}

@@ -71,7 +71,8 @@ export class Pillar extends Component {
     console.log(React.Children.count(this.props.children));
     console.log(this.state.params.length);
     if (React.Children.count(this.props.children) === this.countParams()) {
-      console.log("correct args present, calling func");
+      console.log("correct args present, calling func with these params");
+      console.log(this.state.params);
       this.props.onClick(this.state.params);
       this.resetParams();
     } else {

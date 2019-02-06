@@ -13,12 +13,12 @@ import { Inventory } from "./Inventory";
 import { Var } from "./Var";
 import { Parameter } from "./Parameter";
 import _ from "underscore";
-import { randInt, newVarId } from "./utils";
+import { randInt, newVarId, calcColour } from "./utils";
 
 var colour = {
   id: 99999,
   type: "colour",
-  value: [9, 2, 9]
+  value: [9, 4, 2]
 };
 
 class App extends Component {
@@ -26,7 +26,8 @@ class App extends Component {
     super(props);
     this.state = {
       inv: [colour],
-      squareSize: 1
+      squareSize: 1,
+      bgColour: "#ffffff"
     };
   }
   render() {
@@ -60,7 +61,7 @@ class App extends Component {
             <Avatar img={square} width={20 * this.state.squareSize} />
           </Scene>
 
-          <Scene>
+          <Scene bgColour={this.state.bgColour}>
             <Pillar
               text="Make Colour"
               onClick={params =>
@@ -74,16 +75,19 @@ class App extends Component {
               />
               <Parameter
                 type="number"
-                label="Blue"
+                label="Green"
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
               <Parameter
                 type="number"
-                label="Green"
+                label="Blue"
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
-            <Pillar text="Paint" onClick={() => console.log("on click")}>
+            <Pillar
+              text="Paint"
+              onClick={c => this.setState({ bgColour: calcColour(c[0].value) })}
+            >
               <Parameter
                 type="colour"
                 label="Colour"
