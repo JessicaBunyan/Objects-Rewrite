@@ -16,6 +16,7 @@ import { Parameter } from "./Parameter";
 import _ from "underscore";
 import { randInt, newVarId, calcColour } from "./utils";
 import { TextBox } from "./TextBox";
+import flags from "./storyFlags";
 
 // var colour = {
 //   id: 99999,
@@ -28,8 +29,7 @@ class App extends Component {
     super(props);
     this.state = {
       activeScene: -1,
-      // inv: [colour],
-      invVisible: false,
+      storyFlags: {},
       inv: [],
       squareSize: 1,
       bgColour: "#ffffff"
@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Inventory visible={this.state.invVisible}>
+        <Inventory visible={this.state.storyFlags[flags.inventoryVisible]}>
           {this.state.inv.map((item, index) => {
             return <Var key={index} var={item} draggable={true} />;
           })}
@@ -121,15 +121,16 @@ class App extends Component {
       id: id,
       type: type,
       value: item
-      // removeFromPrevLocation: () => this.removeItemFromInv(id)
     };
+
     var newInv = [...this.state.inv, variable];
     // newInv.push(variable);
 
     this.setState({ inv: newInv });
+
     setTimeout(() => {
-      this.setState({ invVisible: true });
-    }, 1);
+      this.setStoryFlag(flags.inventoryVisible);
+    }, 1); // timeout needed for css anmiations
   }
   removeItemFromInv(vId) {
     console.log("in remoev item rfom inv: " + vId);
@@ -137,6 +138,13 @@ class App extends Component {
     let newInv = this.state.inv;
     newInv = _.reject(newInv, i => i.id == vId);
     this.setState({ inv: newInv });
+  }
+
+  setStoryFlag(flag) {
+    var newFlags = { ...this.state.storyFlags };
+    newFlags[flag] = true;
+
+    this.setState({ storyFlags: newFlags });
   }
 }
 
