@@ -1,7 +1,18 @@
 Better animations for scene transitions
     - When you return after unlocking a scene its just there, want to show it appearing once you return to the nav
+    - Animation when hovering over a scene in nav-view
 
 
 ART!!!
+
+Text Boxes
+    - Style to give them locations and shapes
+    - Make text appear as if its being written /scrolling
+    - manage state for these (flags)?
+    - Pad out dialogue from notes
+
+Future Scenes
+    - decide final version of paintbrush puzzle
+    -  
 
 
