@@ -10,7 +10,11 @@ export class Pillar extends Component {
     for (var i = 0; i < React.Children.count(this.props.children); i++) {
       params.push("");
     }
-    this.state = { params: params, buttonPressed: false };
+    this.state = {
+      params: params,
+      buttonPressed: false,
+      buttonPressFailed: false
+    };
   }
   render() {
     return (
@@ -31,6 +35,7 @@ export class Pillar extends Component {
 
         <Button
           pressed={this.state.buttonPressed}
+          failPressed={this.state.buttonPressFailed}
           onClick={() => this.checkParamsAndExecute()}
         >
           <h2>{this.props.text}</h2>
@@ -79,6 +84,10 @@ export class Pillar extends Component {
       console.log(this.state.params);
       this.triggerOnClick();
     } else {
+      this.setState({ buttonPressFailed: true });
+      setTimeout(() => {
+        this.setState({ buttonPressFailed: false });
+      }, 200);
       console.log("wrong params");
     }
   }
