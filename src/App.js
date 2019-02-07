@@ -15,6 +15,7 @@ import { Var } from "./Var";
 import { Parameter } from "./Parameter";
 import _ from "underscore";
 import { randInt, newVarId, calcColour } from "./utils";
+import { TextBox } from "./TextBox";
 
 var colour = {
   id: 99999,
@@ -47,6 +48,7 @@ class App extends Component {
               onClick={() => this.addItemToInv(randInt(1, 10))}
             />
             <Avatar img={questionMark} imgClassName={"question-mark"} />
+            <TextBox text={"lipsum"} />
           </Scene>
           <Scene>
             <Pillar
