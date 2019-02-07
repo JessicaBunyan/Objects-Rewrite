@@ -10,7 +10,7 @@ export class Pillar extends Component {
     for (var i = 0; i < React.Children.count(this.props.children); i++) {
       params.push("");
     }
-    this.state = { params: params };
+    this.state = { params: params, buttonPressed: false };
   }
   render() {
     return (
@@ -29,7 +29,10 @@ export class Pillar extends Component {
           })}
         </div>
 
-        <Button onClick={() => this.triggerOnClick()}>
+        <Button
+          pressed={this.state.buttonPressed}
+          onClick={() => this.triggerOnClick()}
+        >
           <h2>{this.props.text}</h2>
         </Button>
       </div>
@@ -64,7 +67,11 @@ export class Pillar extends Component {
 
     if (!this.props.children) {
       console.log("0 args required - calling func ");
+      this.setState({ buttonPressed: true });
       this.props.onClick();
+      setTimeout(() => {
+        this.setState({ buttonPressed: false });
+      }, 1000);
       return;
     }
 
