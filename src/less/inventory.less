@@ -1,0 +1,48 @@
+.inventory {
+  width: 50%;
+  position: absolute;
+  left: 25%;
+  font-size: 26px;
+  height: @inventoryHeight;
+  background: white;
+  border: solid 4px black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: top 0.8s 0s ease;
+  z-index: -1;
+  top: -@inventoryHeight;
+
+  .variable {
+    opacity: 0;
+    transition: opacity 0.5s 1s ease;
+  }
+
+  &.visible {
+    z-index: 99;
+    top: 0px;
+    .variable {
+      opacity: 1;
+    }
+  }
+}
+.variable {
+  vertical-align: top;
+  margin: 10px;
+  text-align: center;
+  display: inline-block;
+}
+.number {
+  border: solid 1px black;
+  background-color: white;
+  line-height: @numberHeight;
+
+  width: @numberWidth;
+  height: @numberHeight;
+}
+
+.colour {
+  width: @numberWidth;
+  height: @numberHeight;
+  background-image: url("../img/colourDrop.png");
+  background-size: contain;
+}
