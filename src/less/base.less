@@ -1,7 +1,12 @@
 @import "variables.less";
 
 .App {
+  height: @gameHeight;
+  width: calc(@gameWidth ~"+ 24px");
+  margin: 100px auto 0px auto;
+  overflow: hidden;
   position: relative;
+  //   margin-top: 100px;
 }
 .scene {
   position: absolute;
@@ -60,8 +65,9 @@ img.colour-drop {
 }
 
 .nav-scene {
-  margin: 100px auto 0px auto;
-  position: relative;
+  margin: 0px auto 0px auto;
+  //   left: calc(~"50vw -" @gameWidth / 2);
+  position: absolute;
   display: block;
   width: @gameWidth;
   height: @gameHeight;
@@ -78,6 +84,13 @@ img.colour-drop {
   border: solid 4px black;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  transition: top 1s 0s ease;
+  top: 0px;
+
+  &.hidden {
+    z-index: -1;
+    top: -@inventoryHeight;
+  }
 }
 .variable {
   vertical-align: top;
