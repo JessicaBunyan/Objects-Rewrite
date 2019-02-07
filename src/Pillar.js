@@ -31,7 +31,7 @@ export class Pillar extends Component {
 
         <Button
           pressed={this.state.buttonPressed}
-          onClick={() => this.triggerOnClick()}
+          onClick={() => this.checkParamsAndExecute()}
         >
           <h2>{this.props.text}</h2>
         </Button>
@@ -60,31 +60,36 @@ export class Pillar extends Component {
     return count;
   }
 
-  triggerOnClick() {
+  checkParamsAndExecute() {
     if (!this.props.onClick) {
       return;
     }
 
     if (!this.props.children) {
       console.log("0 args required - calling func ");
-      this.setState({ buttonPressed: true });
-      this.props.onClick();
-      setTimeout(() => {
-        this.setState({ buttonPressed: false });
-      }, 1000);
+      this.triggerOnClick();
       return;
     }
 
     console.log(React.Children.count(this.props.children));
     console.log(this.state.params.length);
+
     if (React.Children.count(this.props.children) === this.countParams()) {
       console.log("correct args present, calling func with these params");
       console.log(this.state.params);
-      this.props.onClick(this.state.params);
-      this.resetParams();
+      this.triggerOnClick();
     } else {
       console.log("wrong params");
     }
+  }
+
+  triggerOnClick() {
+    this.setState({ buttonPressed: true });
+    this.props.onClick(this.state.params);
+    this.resetParams();
+    setTimeout(() => {
+      this.setState({ buttonPressed: false });
+    }, 1000);
   }
 
   resetParams() {
