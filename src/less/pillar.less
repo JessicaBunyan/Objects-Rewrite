@@ -40,7 +40,6 @@
     }
     &.fail-pressed {
       bottom: 190px;
-      background: #f03d3d;
     }
   }
 
@@ -81,13 +80,15 @@
       bottom: 0px;
       z-index: 20;
       right: 0px;
+      transition: box-shadow 0.2s;
       &.colour,
       .colour {
         background-image: url("../img/colourDropDark.png");
       }
 
       &.missing {
-        border-color: red;
+        border-color: #c53c3c;
+        box-shadow: inset 0 0 0 2px #c53c3c;
       }
     }
 
