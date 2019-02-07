@@ -35,80 +35,109 @@ class App extends Component {
       bgColour: "#ffffff"
     };
   }
+
+  renderInventory() {
+    return (
+      <Inventory visible={this.state.storyFlags[flags.inventoryVisible]}>
+        {this.state.inv.map((item, index) => {
+          return <Var key={index} var={item} draggable={true} />;
+        })}
+      </Inventory>
+    );
+  }
+
+  renderScene1() {
+    return (
+      <Scene>
+        <Pillar
+          text="Get Number"
+          onClick={() => this.addItemToInv(randInt(1, 10))}
+        />
+        <Avatar img={questionMark} imgClassName={"question-mark"} />
+        <TextBox text={"lipsum"} />
+      </Scene>
+    );
+  }
+
+  renderScene2() {
+    return (
+      <Scene>
+        <Pillar
+          text="Set Size"
+          onClick={params => this.setState({ squareSize: params[0].value })}
+        >
+          <Parameter
+            type="number"
+            label="Size"
+            removeFromInv={v => this.removeItemFromInv(v)}
+          />
+        </Pillar>
+        <Avatar
+          img={square}
+          width={20 * this.state.squareSize}
+          imgClassName={"square"}
+        />
+      </Scene>
+    );
+  }
+
+  renderScene3() {
+    return (
+      <Scene bgColour={this.state.bgColour} bgImage={paintSquiggle}>
+        <Pillar
+          text="Make Colour"
+          onClick={params =>
+            this.addItemToInv(_.map(params, p => p.value), "colour")
+          }
+        >
+          <Parameter
+            type="number"
+            label="Red"
+            removeFromInv={v => this.removeItemFromInv(v)}
+          />
+          <Parameter
+            type="number"
+            label="Green"
+            removeFromInv={v => this.removeItemFromInv(v)}
+          />
+          <Parameter
+            type="number"
+            label="Blue"
+            removeFromInv={v => this.removeItemFromInv(v)}
+          />
+        </Pillar>
+        <Pillar
+          text="Paint"
+          onClick={c => this.setState({ bgColour: calcColour(c[0].value) })}
+        >
+          <Parameter
+            type="colour"
+            label="Colour"
+            removeFromInv={v => this.removeItemFromInv(v)}
+          />
+        </Pillar>
+        <Avatar img={paintbrush} imgClassName={"paintbrush"} />
+      </Scene>
+    );
+  }
+
   render() {
+    var inventory = this.renderInventory();
+    var scene1 = this.renderScene1();
+    var scene2 = this.renderScene2();
+    var scene3 = this.renderScene3();
+
     return (
       <div className="App">
-        <Inventory visible={this.state.storyFlags[flags.inventoryVisible]}>
-          {this.state.inv.map((item, index) => {
-            return <Var key={index} var={item} draggable={true} />;
-          })}
-        </Inventory>
+        {inventory}
 
         <Nav
           setActiveScene={i => this.setState({ activeScene: i })}
           activeScene={this.state.activeScene}
         >
-          <Scene>
-            <Pillar
-              text="Get Number"
-              onClick={() => this.addItemToInv(randInt(1, 10))}
-            />
-            <Avatar img={questionMark} imgClassName={"question-mark"} />
-            <TextBox text={"lipsum"} />
-          </Scene>
-          <Scene>
-            <Pillar
-              text="Set Size"
-              onClick={params => this.setState({ squareSize: params[0].value })}
-            >
-              <Parameter
-                type="number"
-                label="Size"
-                removeFromInv={v => this.removeItemFromInv(v)}
-              />
-            </Pillar>
-            <Avatar
-              img={square}
-              width={20 * this.state.squareSize}
-              imgClassName={"square"}
-            />
-          </Scene>
-
-          <Scene bgColour={this.state.bgColour} bgImage={paintSquiggle}>
-            <Pillar
-              text="Make Colour"
-              onClick={params =>
-                this.addItemToInv(_.map(params, p => p.value), "colour")
-              }
-            >
-              <Parameter
-                type="number"
-                label="Red"
-                removeFromInv={v => this.removeItemFromInv(v)}
-              />
-              <Parameter
-                type="number"
-                label="Green"
-                removeFromInv={v => this.removeItemFromInv(v)}
-              />
-              <Parameter
-                type="number"
-                label="Blue"
-                removeFromInv={v => this.removeItemFromInv(v)}
-              />
-            </Pillar>
-            <Pillar
-              text="Paint"
-              onClick={c => this.setState({ bgColour: calcColour(c[0].value) })}
-            >
-              <Parameter
-                type="colour"
-                label="Colour"
-                removeFromInv={v => this.removeItemFromInv(v)}
-              />
-            </Pillar>
-            <Avatar img={paintbrush} imgClassName={"paintbrush"} />
-          </Scene>
+          {scene1}
+          {scene2}
+          {scene3}
         </Nav>
       </div>
     );
