@@ -13,9 +13,6 @@ export class Nav extends Component {
       >
         {React.Children.map(this.props.children, (child, index) => {
           var isActive = this.props.activeScene == index;
-          console.log(
-            "isActive - index: " + index + ", " + this.props.activeScene
-          );
           return React.cloneElement(child, {
             key: index,
             active: isActive,
