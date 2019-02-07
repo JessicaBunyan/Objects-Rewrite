@@ -3,7 +3,6 @@ import React, { Component } from "react";
 export class Nav extends Component {
   constructor(props) {
     super(props);
-    this.state = { active: -1 };
   }
   render() {
     return (
@@ -13,7 +12,10 @@ export class Nav extends Component {
         }
       >
         {React.Children.map(this.props.children, (child, index) => {
-          var isActive = this.state.active == index;
+          var isActive = this.props.activeScene == index;
+          console.log(
+            "isActive - index: " + index + ", " + this.props.activeScene
+          );
           return React.cloneElement(child, {
             key: index,
             active: isActive,
@@ -21,8 +23,8 @@ export class Nav extends Component {
               ? () => {
                   return;
                 }
-              : () => this.setState({ active: index }),
-            deactivate: () => this.setState({ active: -1 })
+              : () => this.props.setActiveScene(index),
+            deactivate: () => this.props.setActiveScene(-1)
           });
         })}
       </div>

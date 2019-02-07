@@ -27,6 +27,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeScene: -1,
       // inv: [colour],
       invVisible: false,
       inv: [],
@@ -43,7 +44,10 @@ class App extends Component {
           })}
         </Inventory>
 
-        <Nav>
+        <Nav
+          setActiveScene={i => this.setState({ activeScene: i })}
+          activeScene={this.state.activeScene}
+        >
           <Scene>
             <Pillar
               text="Get Number"
