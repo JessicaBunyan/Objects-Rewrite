@@ -60,6 +60,10 @@ class App extends Component {
   }
 
   renderScene2() {
+    if (!this.state.storyFlags[flags.scene2Visible]) {
+      return null;
+    }
+
     return (
       <Scene>
         <Pillar
@@ -82,6 +86,9 @@ class App extends Component {
   }
 
   renderScene3() {
+    if (!this.state.storyFlags[flags.scene3Visible]) {
+      return null;
+    }
     return (
       <Scene bgColour={this.state.bgColour} bgImage={paintSquiggle}>
         <Pillar
@@ -121,11 +128,28 @@ class App extends Component {
     );
   }
 
+  renderScenes() {
+    // returns an array of all scenes to be rendered
+    var renderers = [
+      () => this.renderScene1(),
+      () => this.renderScene2(),
+      () => this.renderScene3()
+    ];
+    var scenes = [];
+
+    renderers.forEach(renderFunc => {
+      var scene = renderFunc();
+      if (scene) {
+        scenes.push(scene);
+      }
+    });
+
+    return scenes;
+  }
   render() {
     var inventory = this.renderInventory();
-    var scene1 = this.renderScene1();
-    var scene2 = this.renderScene2();
-    var scene3 = this.renderScene3();
+
+    var scenes = this.renderScenes();
 
     return (
       <div className="App">
@@ -135,9 +159,7 @@ class App extends Component {
           setActiveScene={i => this.setState({ activeScene: i })}
           activeScene={this.state.activeScene}
         >
-          {scene1}
-          {scene2}
-          {scene3}
+          {scenes}
         </Nav>
       </div>
     );
@@ -159,6 +181,7 @@ class App extends Component {
 
     setTimeout(() => {
       this.setStoryFlag(flags.inventoryVisible);
+      this.setStoryFlag(flags.scene2Visible);
     }, 1); // timeout needed for css anmiations
   }
   removeItemFromInv(vId) {
