@@ -37,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Inventory hidden={!this.state.invVisible}>
+        <Inventory visible={this.state.invVisible}>
           {this.state.inv.map((item, index) => {
             return <Var key={index} var={item} draggable={true} />;
           })}
@@ -112,7 +112,6 @@ class App extends Component {
 
   addItemToInv(item, type = "number") {
     console.log(this.state.inv);
-    var newInv = this.state.inv;
     var id = newVarId();
     var variable = {
       id: id,
@@ -120,8 +119,13 @@ class App extends Component {
       value: item
       // removeFromPrevLocation: () => this.removeItemFromInv(id)
     };
-    newInv.push(variable);
-    this.setState({ inv: newInv, invVisible: true });
+    var newInv = [...this.state.inv, variable];
+    // newInv.push(variable);
+
+    this.setState({ inv: newInv });
+    setTimeout(() => {
+      this.setState({ invVisible: true });
+    }, 1);
   }
   removeItemFromInv(vId) {
     console.log("in remoev item rfom inv: " + vId);
