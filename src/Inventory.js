@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 export class Inventory extends Component {
   render() {
-    return <div className="inventory">{this.props.children}</div>;
+    var cName = "inventory ";
+    if (this.props.hidden) {
+      cName += " hidden ";
+    }
+    return <div className={cName}>{this.props.children}</div>;
   }
 }

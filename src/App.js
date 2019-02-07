@@ -17,17 +17,19 @@ import _ from "underscore";
 import { randInt, newVarId, calcColour } from "./utils";
 import { TextBox } from "./TextBox";
 
-var colour = {
-  id: 99999,
-  type: "colour",
-  value: [9, 4, 2]
-};
+// var colour = {
+//   id: 99999,
+//   type: "colour",
+//   value: [9, 4, 2]
+// };
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inv: [colour],
+      // inv: [colour],
+      invVisible: false,
+      inv: [],
       squareSize: 1,
       bgColour: "#ffffff"
     };
@@ -35,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Inventory>
+        <Inventory hidden={!this.state.invVisible}>
           {this.state.inv.map((item, index) => {
             return <Var key={index} var={item} draggable={true} />;
           })}
@@ -119,7 +121,7 @@ class App extends Component {
       // removeFromPrevLocation: () => this.removeItemFromInv(id)
     };
     newInv.push(variable);
-    this.setState({ inv: newInv });
+    this.setState({ inv: newInv, invVisible: true });
   }
   removeItemFromInv(vId) {
     console.log("in remoev item rfom inv: " + vId);
