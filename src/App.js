@@ -46,7 +46,7 @@ class App extends Component {
               text="Get Number"
               onClick={() => this.addItemToInv(randInt(1, 10))}
             />
-            <Avatar img={questionMark} />
+            <Avatar img={questionMark} imgClassName={"question-mark"} />
           </Scene>
           <Scene>
             <Pillar
@@ -59,7 +59,11 @@ class App extends Component {
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
-            <Avatar img={square} width={20 * this.state.squareSize} />
+            <Avatar
+              img={square}
+              width={20 * this.state.squareSize}
+              imgClassName={"square"}
+            />
           </Scene>
 
           <Scene bgColour={this.state.bgColour} bgImage={paintSquiggle}>
@@ -95,7 +99,7 @@ class App extends Component {
                 removeFromInv={v => this.removeItemFromInv(v)}
               />
             </Pillar>
-            <Avatar img={paintbrush} />
+            <Avatar img={paintbrush} imgClassName={"paintbrush"} />
           </Scene>
         </Nav>
       </div>

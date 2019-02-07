@@ -5,6 +5,7 @@ export class Avatar extends Component {
     return (
       <div className="avatar">
         <img
+          className={this.props.imgClassName}
           src={this.props.img}
           style={{
             width: this.props.width + "px",
