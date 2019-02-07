@@ -31,7 +31,7 @@ class App extends Component {
       activeScene: -1,
       storyFlags: {},
       inv: [],
-      squareSize: 1,
+      squareSize: 0,
       bgColour: "#ffffff"
     };
   }
@@ -64,6 +64,13 @@ class App extends Component {
       return null;
     }
 
+    var squareWidth = 0;
+    if (this.state.squareSize == 0) {
+      squareWidth = 20;
+    } else {
+      squareWidth = 100 + 20 * this.state.squareSize;
+    }
+
     return (
       <Scene key={2}>
         <Pillar
@@ -79,11 +86,7 @@ class App extends Component {
             removeFromInv={v => this.removeItemFromInv(v)}
           />
         </Pillar>
-        <Avatar
-          img={square}
-          width={20 * this.state.squareSize}
-          imgClassName={"square"}
-        />
+        <Avatar img={square} width={squareWidth} imgClassName={"square"} />
       </Scene>
     );
   }
