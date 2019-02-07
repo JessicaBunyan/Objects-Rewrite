@@ -5,7 +5,7 @@ import { Scene } from "./Scene";
 import { Nav } from "./Nav";
 import { Avatar } from "./Avatar";
 import { Pillar } from "./Pillar";
-import square from "./img/square.png";
+import square from "./img/grampasquare.png";
 import questionMark from "./img/questionman.png";
 import paintbrush from "./img/Paintbrush.png";
 import paintSquiggle from "./img/paintsquiggle.png";
