@@ -68,7 +68,10 @@ class App extends Component {
       <Scene>
         <Pillar
           text="Set Size"
-          onClick={params => this.setState({ squareSize: params[0].value })}
+          onClick={params => {
+            this.setState({ squareSize: params[0].value });
+            this.setStoryFlag(flags.scene3Visible);
+          }}
         >
           <Parameter
             type="number"
@@ -128,8 +131,10 @@ class App extends Component {
     );
   }
 
+  /**
+   * returns an array of all scenes to be rendered, ignoring those which return null
+   *  */
   renderScenes() {
-    // returns an array of all scenes to be rendered
     var renderers = [
       () => this.renderScene1(),
       () => this.renderScene2(),
@@ -146,6 +151,7 @@ class App extends Component {
 
     return scenes;
   }
+
   render() {
     var inventory = this.renderInventory();
 
