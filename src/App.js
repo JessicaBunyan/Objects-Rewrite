@@ -48,7 +48,7 @@ class App extends Component {
 
   renderScene1() {
     return (
-      <Scene>
+      <Scene key={1}>
         <Pillar
           text="Get Number"
           onClick={() => this.addItemToInv(randInt(1, 10))}
@@ -65,7 +65,7 @@ class App extends Component {
     }
 
     return (
-      <Scene>
+      <Scene key={2}>
         <Pillar
           text="Set Size"
           onClick={params => {
@@ -93,7 +93,7 @@ class App extends Component {
       return null;
     }
     return (
-      <Scene bgColour={this.state.bgColour} bgImage={paintSquiggle}>
+      <Scene key={3} bgColour={this.state.bgColour} bgImage={paintSquiggle}>
         <Pillar
           text="Make Colour"
           onClick={params =>
