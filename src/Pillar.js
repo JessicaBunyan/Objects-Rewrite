@@ -26,7 +26,11 @@ export class Pillar extends Component {
             return React.cloneElement(
               child,
               {
-                updateState: v => this.updateParamVal(index, v)
+                updateState: v => this.updateParamVal(index, v),
+                missing:
+                  !this.state.params[index] && this.state.buttonPressFailed
+                    ? true
+                    : false
               },
               <Var var={this.state.params[index]} />
             );
@@ -87,7 +91,7 @@ export class Pillar extends Component {
       this.setState({ buttonPressFailed: true });
       setTimeout(() => {
         this.setState({ buttonPressFailed: false });
-      }, 200);
+      }, 300);
       console.log("wrong params");
     }
   }

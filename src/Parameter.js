@@ -2,13 +2,15 @@ import React, { Component } from "react";
 
 export class Parameter extends Component {
   render() {
+    var cName = "parameter " + this.props.type;
+    cName += this.props.missing ? " missing" : "";
     return (
       <div className="param-container">
         <div className="label">
           <h3>{this.props.label}</h3>{" "}
         </div>
         <div
-          className={"parameter " + this.props.type}
+          className={cName}
           onDrop={event => this.drop(event)}
           onDragOver={event => this.allowDrop(event)}
         >
