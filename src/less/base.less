@@ -15,71 +15,27 @@
 .text-box {
   position: absolute;
   display: block;
-}
+  border: solid 3px black;
+  border-radius: 10px;
 
-.scene {
-  position: absolute;
-  display: inline-block;
-  transition: all 2s ease;
-  border-radius: 20px;
-  border: double @sceneBorderWidth black;
-
-  background: #fff;
-
-  width: @gameWidth;
-  height: @gameHeight;
-
-  //   overflow: hidden;
-
-  &.active {
-    transform: none;
-  }
-
-  .footer {
-    opacity: 0.5;
-    width: 100%;
-    height: @footerHeight;
-    background: #eee;
-    bottom: 0px;
+  &:after {
+    content: "";
     position: absolute;
-    img.back-chevron {
-      position: absolute;
-      display: none;
-      width: 25%;
-      height: @footerHeight;
-      opacity: 0.2;
-      transition: opacity 0.3s;
-      left: 37.5%;
-    }
-    &:hover img.back-chevron {
-      opacity: 0.45;
-    }
-  }
-
-  .avatar {
-    position: absolute;
-    bottom: 200px;
-    right: 30px;
+    right: 0;
+    top: ~"calc(100% - 41px)";
+    width: 0;
+    height: 0;
+    border: 41px solid transparent;
+    border-left-color: black;
+    border-right: 0;
+    border-bottom: 0;
+    margin-right: -35px;
   }
 }
 
 img {
   width: 200px;
   height: 200px;
-}
-
-img.colour-drop {
-  width: @numberWidth;
-  height: @numberHeight;
-}
-
-.nav-scene {
-  margin: 0px auto 0px auto;
-  //   left: calc(~"50vw -" @gameWidth / 2);
-  position: absolute;
-  display: block;
-  width: @gameWidth;
-  height: @gameHeight;
 }
 
 img.square {
