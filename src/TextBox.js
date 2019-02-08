@@ -4,6 +4,10 @@ import colourDrop from "./img/colourDrop.png";
 
 export class TextBox extends Component {
   render() {
-    return <div className={"text-box"}>{this.props.children}</div>;
+    return (
+      <div className={" text-box " + this.props.className}>
+        {this.props.children}
+      </div>
+    );
   }
 }

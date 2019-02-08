@@ -18,13 +18,22 @@
 
   .scene:nth-child(2) {
     .text-box {
-      width: 40%;
-      top: 41%;
-      left: 44%;
       border-color: deeppink;
       background: deeppink;
       &:after {
         border-left-color: deeppink;
+      }
+
+      &.d1 {
+        width: 40%;
+        top: 41%;
+        left: 44%;
+      }
+
+      &.d2 {
+        width: 50%;
+        top: 17%;
+        left: 15%;
       }
     }
   }

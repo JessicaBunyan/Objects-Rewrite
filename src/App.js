@@ -66,6 +66,25 @@ class App extends Component {
     );
   }
 
+  renderScene2Dialog() {
+    if (!this.state.storyFlags[flags.scene3Visible]) {
+      return (
+        <TextBox className="d1">
+          <h2>HELP!!!</h2>
+          <h3>I'm TINY!!!</h3>
+          <h3>I need a SIZE! Can you help me out?</h3>
+        </TextBox>
+      );
+    } else {
+      return (
+        <TextBox className="d2">
+          <h2>Much better!</h2>
+          <h3>Many thanks my friend!</h3>
+        </TextBox>
+      );
+    }
+  }
+
   renderScene2() {
     if (!this.state.storyFlags[flags.scene2Visible]) {
       return null;
@@ -77,6 +96,8 @@ class App extends Component {
     } else {
       squareWidth = 100 + 20 * this.state.squareSize;
     }
+
+    var dialog = this.renderScene2Dialog();
 
     return (
       <Scene key={2}>
@@ -94,11 +115,7 @@ class App extends Component {
           />
         </Pillar>
         <Avatar img={square} width={squareWidth} imgClassName={"square"} />
-        <TextBox>
-          <h2>HELP!!!</h2>
-          <h3>I'm TINY!!!</h3>
-          <h3>I need a SIZE! Can you help me out?</h3>
-        </TextBox>
+        {dialog}
       </Scene>
     );
   }
