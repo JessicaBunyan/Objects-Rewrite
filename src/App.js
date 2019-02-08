@@ -90,6 +90,11 @@ class App extends Component {
           />
         </Pillar>
         <Avatar img={square} width={squareWidth} imgClassName={"square"} />
+        <TextBox>
+          <h2>HELP!!!</h2>
+          <h3>I'm TINY!!!</h3>
+          <h3>I need a SIZE! Can you help me out?</h3>
+        </TextBox>
       </Scene>
     );
   }
