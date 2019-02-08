@@ -55,8 +55,12 @@ class App extends Component {
         />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox>
-          <h2>Numbers!</h2>
-          <h3>Get your Numbers here!</h3>
+          <h2>
+            <em>Numbers!</em>
+          </h2>
+          <h3>
+            Get your <em>Numbers</em> here!
+          </h3>
         </TextBox>
       </Scene>
     );
