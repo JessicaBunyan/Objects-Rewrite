@@ -54,7 +54,10 @@ class App extends Component {
           onClick={() => this.addItemToInv(randInt(1, 10))}
         />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
-        <TextBox text={"Numbers! Get your numbers here!"} />
+        <TextBox>
+          <h2>Numbers!</h2>
+          <h3>Get your Numbers here!</h3>
+        </TextBox>
       </Scene>
     );
   }
