@@ -18,3 +18,5 @@ Future Scenes
 
 bug with adding colour to inventory
 
+disable dragging for everything that shouldn't be draggable.
+disable text/img highlighting
