@@ -51,7 +51,7 @@ class App extends Component {
       <Scene key={1}>
         <Pillar
           text="Get Number"
-          onClick={() => this.addItemToInv(randInt(1, 10))}
+          onClick={() => this.addItemToInv(randInt(1, 9))}
         />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox>
