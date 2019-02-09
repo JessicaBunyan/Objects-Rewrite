@@ -9,11 +9,12 @@ export class Parameter extends Component {
         <div className="label">
           <h3>{this.props.label}</h3>{" "}
         </div>
-        <div
-          className={cName}
-          onDrop={event => this.drop(event)}
-          onDragOver={event => this.allowDrop(event)}
-        >
+        <div className={cName}>
+          <div
+            className="param-hitbox"
+            onDrop={event => this.drop(event)}
+            onDragOver={event => this.allowDrop(event)}
+          />
           {React.cloneElement(this.props.children, { draggable: false })}
         </div>
       </div>
