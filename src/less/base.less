@@ -1,9 +1,9 @@
 @import "variables.less";
 
 .App {
-  height: @gameHeight;
+  height: calc(@gameHeight ~"+ 24px");
   width: calc(@gameWidth ~"+ 24px");
-  margin: 100px auto 0px auto;
+  margin: 100px auto 20px auto;
   overflow: hidden;
   position: relative;
   * {
