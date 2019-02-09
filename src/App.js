@@ -77,7 +77,7 @@ class App extends Component {
       );
     } else {
       return (
-        <TextBox className="d2">
+        <TextBox className={"d2 size" + this.state.squareSize}>
           <h2>Much better!</h2>
           <h3>Many thanks my friend!</h3>
         </TextBox>
