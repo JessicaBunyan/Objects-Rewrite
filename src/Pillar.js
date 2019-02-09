@@ -26,7 +26,8 @@ export class Pillar extends Component {
               child,
               {
                 updateState: v => this.updateParamVal(index, v),
-                missing:
+                hasVar: this.state.params[index],
+                missingAnimation:
                   !this.state.params[index] && this.state.buttonPressFailed
                     ? true
                     : false

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class Parameter extends Component {
   render() {
     var cName = "parameter " + this.props.type;
-    cName += this.props.missing ? " missing" : "";
+    cName += this.props.missingAnimation ? " missing" : "";
     return (
       <div className="param-container">
         <div className="label">
@@ -22,7 +22,10 @@ export class Parameter extends Component {
   }
 
   allowDrop(ev) {
-    ev.preventDefault();
+    if (!this.props.hasVar) {
+      // only accept drop if no param
+      ev.preventDefault();
+    }
   }
 
   drop(ev) {
