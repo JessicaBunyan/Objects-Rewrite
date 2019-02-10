@@ -22,5 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
+# compiled CSS
 *.css
+
+#vs code workspace files
+*.code-workspace
+

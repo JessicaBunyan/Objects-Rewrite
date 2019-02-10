@@ -12,6 +12,11 @@ function scaleInt(num) {
   return Math.floor((num / 10) * 255).toString(16); //tostring(16) turns it to hexadecimal
 }
 
+/**
+ *
+ * @param {array of 3 values (1-9) representing r, g and b}
+ * returns a hex colour string
+ */
 export function calcColour(vals) {
   var r = scaleInt(vals[0]);
   var g = scaleInt(vals[1]);

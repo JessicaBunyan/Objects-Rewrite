@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import { assert } from "mocha";
-import { hexToRgb } from "./utils";
+import App from "../App";
+import { hexToRgb } from "../utils";
+import { calcColour } from "./../utils";
 
 it("hexToRGB isCorrect - white", () => {
   var res = hexToRgb("#ffffff");
@@ -18,8 +18,7 @@ it("hexToRGB isCorrect - purple", () => {
   expect(res.b).toEqual(211);
 });
 
-it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it("calcColour isCorrect ", () => {
+  var res = calcColour([1, 1, 1]);
+  expect(res).toEqual("#191919");
 });
