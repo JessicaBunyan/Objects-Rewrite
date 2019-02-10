@@ -140,11 +140,11 @@ class Room1 extends Component {
         </TextBox>
         <TextBox className={d2Class}>
           <h2>Woo Yeah!</h2>
-          <h3>Now we're cooking with charcoal!</h3>
+          <h3>Now we're cooking!</h3>
         </TextBox>
         <TextBox className={d3Class}>
           <h2>????</h2>
-          <h3>Does that look purple to you?</h3>
+          <h3>That doesn't look very purple to me...</h3>
         </TextBox>
       </div>
     );

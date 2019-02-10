@@ -9,7 +9,7 @@ import { newVarId } from "./utils";
 var c = {
   id: 999,
   type: "colour",
-  value: [9, 1, 9]
+  value: [9, 9, 9]
 };
 
 export class Game extends Component {
