@@ -29,23 +29,29 @@ export class Game extends Component {
   render() {
     var inventory = this.renderInventory();
 
-    var room1 = this.renderRoom1();
+    var room1 = this.renderNav();
 
-    if (this.state.activeRoom == -1) {
-      room1 = this.renderRoom1Preview();
+    if (this.state.activeRoom == 1) {
+      room1 = this.renderRoom1();
     }
+
     return (
-      <div className="App">
+      <div className="Game">
         {inventory}
         {room1}
       </div>
     );
   }
 
-  renderRoom1Preview() {
+  renderNav() {
     return (
-      <div className="preview scene">
-        <h2> test</h2>
+      <div className="nav-scene scene active c2">
+        <div className="scene">
+          <h2> test</h2>
+        </div>
+        <div className="scene">
+          <h2> test2</h2>
+        </div>
       </div>
     );
   }
