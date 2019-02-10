@@ -196,7 +196,7 @@ class Room1 extends Component {
 
   colourIsMatch(colour) {
     console.log(colour);
-    var result = console.log(hexToRgb(colour));
+    var result = hexToRgb(colour);
     if (
       result.r > 100 &&
       result.b > 100 &&
