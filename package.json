@@ -28,6 +28,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "less-watch-compiler": "^1.13.0"
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "less-watch-compiler": "^1.13.0",
+    "react-test-renderer": "^16.8.1"
   }
 }
