@@ -85,5 +85,29 @@
         }
       }
     }
-  }
+  } // END SCENE 2
+
+  .scene:nth-child(3) {
+    .text-box {
+      border-color: yellow;
+      background: yellow;
+      &:after {
+        border-left-color: yellow;
+      }
+
+      &.d1 {
+        left: 19%;
+        top: 12%;
+        width: 50%;
+        em {
+          color: purple;
+        }
+      }
+      &.d2 {
+        width: 50%;
+        left: 19%;
+        bottom: 71%;
+      }
+    }
+  } //END SCENE 3
 }

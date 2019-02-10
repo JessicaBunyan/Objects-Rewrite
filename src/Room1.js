@@ -137,8 +137,14 @@ class Room1 extends Component {
             My favourite colour is <em>purple</em>
           </h3>
         </TextBox>
-        <TextBox className={d2Class}>woo yeah</TextBox>
-        <TextBox className={d3Class}>That's not purple!!</TextBox>
+        <TextBox className={d2Class}>
+          <h2>Woo Yeah!</h2>
+          <h3>Now we're cooking with charcoal!</h3>
+        </TextBox>
+        <TextBox className={d3Class}>
+          <h2>????</h2>
+          <h3>Does that look purple to you?</h3>
+        </TextBox>
       </div>
     );
   }

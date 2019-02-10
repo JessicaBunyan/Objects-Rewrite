@@ -6,12 +6,18 @@ import flags from "./storyFlags";
 import * as _ from "underscore";
 import { newVarId } from "./utils";
 
+// var c = {
+//   id: 999,
+//   type: "colour",
+//   value: [9, 1, 9]
+// };
+
 export class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
       storyFlags: {},
-      inv: []
+      inv: [c]
     };
   }
 
