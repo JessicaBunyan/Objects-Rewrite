@@ -12,29 +12,54 @@ var c = {
   value: [9, 3, 9]
 };
 
+var sFlags = {};
+sFlags[flags.room1Complete] = true;
+
 export class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      storyFlags: {},
-      inv: [c]
+      storyFlags: sFlags,
+      inv: [c],
+      activeRoom: 1
       // inv: []
     };
   }
 
   render() {
     var inventory = this.renderInventory();
+
+    var room1 = this.renderRoom1();
+
+    if (this.state.activeRoom == -1) {
+      room1 = this.renderRoom1Preview();
+    }
     return (
       <div className="App">
         {inventory}
-        <Room1
-          storyFlags={this.state.storyFlags}
-          inv={this.state.inv}
-          addItemToInv={(v, type) => this.addItemToInv(v, type)}
-          removeItemFromInv={vId => this.removeItemFromInv(vId)}
-          setStoryFlag={f => this.setStoryFlag(f)}
-        />
+        {room1}
       </div>
+    );
+  }
+
+  renderRoom1Preview() {
+    return (
+      <div className="preview scene">
+        <h2> test</h2>
+      </div>
+    );
+  }
+
+  renderRoom1() {
+    return (
+      <Room1
+        storyFlags={this.state.storyFlags}
+        inv={this.state.inv}
+        addItemToInv={(v, type) => this.addItemToInv(v, type)}
+        removeItemFromInv={vId => this.removeItemFromInv(vId)}
+        setStoryFlag={f => this.setStoryFlag(f)}
+        exitRoom={() => this.setState({ activeRoom: -1 })}
+      />
     );
   }
 

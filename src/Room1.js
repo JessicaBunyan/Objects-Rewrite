@@ -20,6 +20,7 @@ import {
 } from "./utils";
 import { TextBox } from "./TextBox";
 import flags from "./storyFlags";
+import SceneFooter from "./SceneFooter";
 
 class Room1 extends Component {
   constructor(props) {
@@ -207,6 +208,10 @@ class Room1 extends Component {
       () => this.renderScene3()
     );
 
+    var footer = this.props.storyFlags[flags.room1Complete] ? (
+      <SceneFooter action={() => this.props.exitRoom()} />
+    ) : null;
+
     return (
       <div className="room room1">
         <Nav
@@ -215,6 +220,7 @@ class Room1 extends Component {
         >
           {scenes}
         </Nav>
+        {footer}
       </div>
     );
   }

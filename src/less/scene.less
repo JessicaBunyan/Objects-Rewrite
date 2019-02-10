@@ -18,27 +18,6 @@
     transform: none;
   }
 
-  .footer {
-    opacity: 0.5;
-    width: 100%;
-    height: @footerHeight;
-    background: #eee;
-    bottom: 0px;
-    position: absolute;
-    img.back-chevron {
-      position: absolute;
-      display: none;
-      width: 25%;
-      height: @footerHeight;
-      opacity: 0.2;
-      transition: opacity 0.3s;
-      left: 37.5%;
-    }
-    &:hover img.back-chevron {
-      opacity: 0.45;
-    }
-  }
-
   .avatar {
     position: absolute;
     bottom: 200px;
@@ -50,4 +29,29 @@
       display: block;
     }
   }
+}
+
+.footer {
+  opacity: 0.5;
+  width: 100%;
+  height: @footerHeight;
+  background: #eee;
+  bottom: 0px;
+  position: absolute;
+  img.back-chevron {
+    position: absolute;
+    display: none;
+    width: 25%;
+    height: @footerHeight;
+    opacity: 0.2;
+    transition: opacity 0.3s;
+    left: 37.5%;
+  }
+  &:hover img.back-chevron {
+    opacity: 0.45;
+  }
+}
+
+.room > .footer img.back-chevron {
+  display: block;
 }
