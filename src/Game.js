@@ -5,6 +5,8 @@ import { Inventory } from "./Inventory";
 import flags from "./storyFlags";
 import * as _ from "underscore";
 import { newVarId } from "./utils";
+import { Scene } from "./Scene";
+import placeholder from "./img/questionman.png";
 
 var c = {
   id: 999,
@@ -46,12 +48,15 @@ export class Game extends Component {
   renderNav() {
     return (
       <div className="nav-scene scene active c2">
-        <div className="scene">
+        <Scene
+          bgImage={placeholder}
+          onClick={() => this.setState({ activeRoom: 1 })}
+        >
           <h2> test</h2>
-        </div>
-        <div className="scene">
+        </Scene>
+        <Scene>
           <h2> test2</h2>
-        </div>
+        </Scene>
       </div>
     );
   }
