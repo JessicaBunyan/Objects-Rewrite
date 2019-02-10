@@ -4,7 +4,7 @@ import Room1 from "./Room1";
 import { Inventory } from "./Inventory";
 import flags from "./storyFlags";
 import * as _ from "underscore";
-import { newVarId } from "./utils";
+import { newVarId, combineRenders } from "./utils";
 import { Scene } from "./Scene";
 import placeholder from "./img/questionman.png";
 
@@ -31,16 +31,15 @@ export class Game extends Component {
   render() {
     var inventory = this.renderInventory();
 
-    var room1 = this.renderNav();
-
-    if (this.state.activeRoom == 1) {
-      room1 = this.renderRoom1();
-    }
+    var scenes = combineRenders(
+      () => this.renderNav(),
+      () => this.renderRoom1()
+    );
 
     return (
       <div className="Game">
         {inventory}
-        {room1}
+        {scenes}
       </div>
     );
   }
@@ -64,6 +63,7 @@ export class Game extends Component {
   renderRoom1() {
     return (
       <Room1
+        visible={this.state.activeRoom == 1}
         storyFlags={this.state.storyFlags}
         inv={this.state.inv}
         addItemToInv={(v, type) => this.addItemToInv(v, type)}
