@@ -10,15 +10,15 @@ import paintbrush from "./img/Paintbrush.png";
 import paintSquiggle from "./img/paintsquiggle.png";
 import { Parameter } from "./Parameter";
 import _ from "underscore";
-import { randInt, newVarId, calcColour, combineRenders } from "./utils";
+import {
+  randInt,
+  newVarId,
+  calcColour,
+  combineRenders,
+  hexToRgb
+} from "./utils";
 import { TextBox } from "./TextBox";
 import flags from "./storyFlags";
-
-// var colour = {
-//   id: 99999,
-//   type: "colour",
-//   value: [9, 4, 2]
-// };
 
 class Room1 extends Component {
   constructor(props) {
@@ -195,7 +195,17 @@ class Room1 extends Component {
   }
 
   colourIsMatch(colour) {
-    return true;
+    console.log(colour);
+    var result = console.log(hexToRgb(colour));
+    if (
+      result.r > 100 &&
+      result.b > 100 &&
+      result.g < result.r &&
+      result.g < result.b
+    ) {
+      return true;
+    }
+    return false;
   }
 
   render() {
