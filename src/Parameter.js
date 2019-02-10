@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 
 export class Parameter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     var cName = "parameter " + this.props.type;
-    cName += this.props.missingAnimation ? " missing" : "";
+    cName +=
+      this.props.missingAnimation || this.state.missingAnimation
+        ? " missing"
+        : "";
     return (
       <div className="param-container">
         <div className="label">
@@ -44,7 +51,10 @@ export class Parameter extends Component {
       this.props.updateState(v);
     } else {
       console.log("wrong type");
-      //todo
+      this.setState({ missingAnimation: true });
+      setTimeout(() => {
+        this.setState({ missingAnimation: false });
+      }, 300);
     }
   }
 }
