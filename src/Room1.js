@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./css/index.css";
 import { Scene } from "./Scene";
 import { Nav } from "./Nav";
@@ -9,9 +8,6 @@ import square from "./img/grampasquare.png";
 import questionMark from "./img/questionman.png";
 import paintbrush from "./img/Paintbrush.png";
 import paintSquiggle from "./img/paintsquiggle.png";
-import { Button } from "./Button";
-import { Inventory } from "./Inventory";
-import { Var } from "./Var";
 import { Parameter } from "./Parameter";
 import _ from "underscore";
 import { randInt, newVarId, calcColour } from "./utils";
