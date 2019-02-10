@@ -1,10 +1,16 @@
+This game is under development. Code on the _master_ branch may be unstable and/or elements may appear in a half completed state.
+
+To see the latest stable "release", check out the branch _stable_.
+
+==============================
+
 Objects is a game about identity, being yourself, and Object-Oriented programming principles.
 
 Welcome to the playground! A special place where Objects walk the earth! Jump in, pick up some variables and call methods to solve puzzles!
 
 This game is under development, and thus includes placeholder artwork.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Instructions for running are below
 
 ## Available Scripts
 
