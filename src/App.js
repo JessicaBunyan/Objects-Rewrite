@@ -79,12 +79,15 @@ class App extends Component {
       <div className="text-box-region">
         <TextBox className={"d1 " + d1Vis}>
           <h2>HELP!!!</h2>
-          <h3>I'm TINY!!!</h3>
-          <h3>I need a SIZE! Can you help me out?</h3>
+          <h3>...</h3>
+          <h3>
+            I'm <em>TINY!!!</em>
+          </h3>
+          <h3>Can you help me out?</h3>
         </TextBox>
         <TextBox className={"d2 " + d2Vis + " size" + this.state.squareSize}>
           <h2>Much better!</h2>
-          <h3>Many thanks my friend!</h3>
+          <h3>You're getting the hang of this!</h3>
         </TextBox>
       </div>
     );

@@ -15,6 +15,9 @@ Future Scenes
     - decide final version of paintbrush puzzle
     -  
 
+param hitboxes overlap so lower ones will get dropped into more often - guesswe want to change hitbox size if there's a collision like this
+
+animation timings aren't right for entering/exiting scene 2 now
 
 bug with adding colour to inventory
 
