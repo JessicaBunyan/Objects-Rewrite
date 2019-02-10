@@ -10,7 +10,7 @@ import paintbrush from "./img/Paintbrush.png";
 import paintSquiggle from "./img/paintsquiggle.png";
 import { Parameter } from "./Parameter";
 import _ from "underscore";
-import { randInt, newVarId, calcColour } from "./utils";
+import { randInt, newVarId, calcColour, combineRenders } from "./utils";
 import { TextBox } from "./TextBox";
 import flags from "./storyFlags";
 
@@ -192,29 +192,12 @@ class Room1 extends Component {
     return true;
   }
 
-  /**
-   * returns an array of all scenes to be rendered, ignoring those which return null
-   *  */
-  renderScenes() {
-    var renderers = [
+  render() {
+    var scenes = combineRenders(
       () => this.renderScene1(),
       () => this.renderScene2(),
       () => this.renderScene3()
-    ];
-    var scenes = [];
-
-    renderers.forEach(renderFunc => {
-      var scene = renderFunc();
-      if (scene) {
-        scenes.push(scene);
-      }
-    });
-
-    return scenes;
-  }
-
-  render() {
-    var scenes = this.renderScenes();
+    );
 
     return (
       <div className="room room1">

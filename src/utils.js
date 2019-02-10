@@ -20,3 +20,19 @@ export function calcColour(vals) {
   const str = `#${r}${g}${b}`;
   return str;
 }
+
+export function /**
+ * returns an array of all scenes to be rendered, ignoring those which return null
+ *  */
+combineRenders(...renderers) {
+  var scenes = [];
+
+  renderers.forEach(renderFunc => {
+    var scene = renderFunc();
+    if (scene) {
+      scenes.push(scene);
+    }
+  });
+
+  return scenes;
+}
