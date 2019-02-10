@@ -52,17 +52,17 @@ class Room1 extends Component {
   }
 
   renderScene2Dialog() {
-    var d1Vis = "";
-    var d2Vis = "";
+    var d1Class = "d1 ";
+    var d2Class = "d2 size" + this.state.squareSize + " ";
     if (!this.props.storyFlags[flags.scene3Visible]) {
-      d2Vis = "hidden";
+      d2Class += " hidden ";
     } else {
-      d1Vis = "hidden";
+      d1Class += " hidden ";
     }
 
     return (
       <div className="text-box-region">
-        <TextBox className={"d1 " + d1Vis}>
+        <TextBox className={d1Class}>
           <h2>HELP!!!</h2>
           <h3>...</h3>
           <h3>
@@ -70,7 +70,7 @@ class Room1 extends Component {
           </h3>
           <h3>Can you help me out?</h3>
         </TextBox>
-        <TextBox className={"d2 " + d2Vis + " size" + this.state.squareSize}>
+        <TextBox className={d2Class}>
           <h2>Much better!</h2>
           <h3>You're getting the hang of this!</h3>
         </TextBox>
@@ -113,10 +113,41 @@ class Room1 extends Component {
     );
   }
 
+  renderScene3Dialog() {
+    var d1Class = "d1 ";
+    var d2Class = "d2 ";
+    var d3Class = "d3 ";
+    if (this.state.bgColour == "#ffffff") {
+      d2Class += "hidden";
+      d3Class += "hidden";
+    } else {
+      if (this.colourIsMatch(this.state.bgColour)) {
+        d1Class += "hidden";
+        d3Class += "hidden";
+      } else {
+        d1Class += "hidden";
+        d2Class += "hidden";
+      }
+    }
+    return (
+      <div className="text-box-region">
+        <TextBox className={d1Class}>
+          <h2>Hey! Want to help me paint?</h2>
+          <h3>
+            My favourite colour is <em>purple</em>
+          </h3>
+        </TextBox>
+        <TextBox className={d2Class}>woo yeah</TextBox>
+        <TextBox className={d3Class}>That's not purple!!</TextBox>
+      </div>
+    );
+  }
+
   renderScene3() {
     if (!this.props.storyFlags[flags.scene3Visible]) {
       return null;
     }
+    var dialog = this.renderScene3Dialog();
     return (
       <Scene key={3} bgColour={this.state.bgColour} bgImage={paintSquiggle}>
         <Pillar
@@ -152,8 +183,13 @@ class Room1 extends Component {
           />
         </Pillar>
         <Avatar img={paintbrush} imgClassName={"paintbrush"} />
+        {dialog}
       </Scene>
     );
+  }
+
+  colourIsMatch(colour) {
+    return true;
   }
 
   /**
