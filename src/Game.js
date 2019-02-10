@@ -17,7 +17,8 @@ export class Game extends Component {
     super(props);
     this.state = {
       storyFlags: {},
-      inv: [c]
+      // inv: [c]
+      inv: []
     };
   }
 
