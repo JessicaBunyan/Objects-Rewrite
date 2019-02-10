@@ -1,39 +1,36 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./css/index.css";
-import { Scene } from "./Scene";
-import { Nav } from "./Nav";
-import { Avatar } from "./Avatar";
-import { Pillar } from "./Pillar";
-import square from "./img/grampasquare.png";
-import questionMark from "./img/questionman.png";
-import paintbrush from "./img/Paintbrush.png";
-import paintSquiggle from "./img/paintsquiggle.png";
+import postbox from "./img/postboxGrey.png";
 import { Button } from "./Button";
-import { Inventory } from "./Inventory";
 import { Var } from "./Var";
-import { Parameter } from "./Parameter";
-import _ from "underscore";
-import { randInt, newVarId, calcColour } from "./utils";
-import { TextBox } from "./TextBox";
+import Room1 from "./Room1";
+import { Inventory } from "./Inventory";
 import flags from "./storyFlags";
+import * as _ from "underscore";
+import { newVarId } from "./utils";
 
-// var colour = {
-//   id: 99999,
-//   type: "colour",
-//   value: [9, 4, 2]
-// };
-
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeScene: -1,
       storyFlags: {},
-      inv: [],
-      squareSize: 0,
-      bgColour: "#ffffff"
+      inv: []
     };
+  }
+
+  render() {
+    var inventory = this.renderInventory();
+    return (
+      <div className="App">
+        {inventory}
+        <Room1
+          storyFlags={this.state.storyFlags}
+          inv={this.state.inv}
+          addItemToInv={(v, type) => this.addItemToInv(v, type)}
+          removeItemFromInv={vId => this.removeItemFromInv(vId)}
+          setStoryFlag={f => this.setStoryFlag(f)}
+        />
+      </div>
+    );
   }
 
   renderInventory() {
@@ -43,171 +40,6 @@ class App extends Component {
           return <Var key={index} var={item} draggable={true} />;
         })}
       </Inventory>
-    );
-  }
-
-  renderScene1() {
-    return (
-      <Scene key={1}>
-        <Pillar
-          text="Get Number"
-          onClick={() => this.addItemToInv(randInt(1, 9))}
-        />
-        <Avatar img={questionMark} imgClassName={"question-mark"} />
-        <TextBox>
-          <h2>
-            <em>Numbers!</em>
-          </h2>
-          <h3>
-            Get your <em>Numbers</em> here!
-          </h3>
-        </TextBox>
-      </Scene>
-    );
-  }
-
-  renderScene2Dialog() {
-    var d1Vis = "";
-    var d2Vis = "";
-    if (!this.state.storyFlags[flags.scene3Visible]) {
-      d2Vis = "hidden";
-    } else {
-      d1Vis = "hidden";
-    }
-
-    return (
-      <div className="text-box-region">
-        <TextBox className={"d1 " + d1Vis}>
-          <h2>HELP!!!</h2>
-          <h3>...</h3>
-          <h3>
-            I'm <em>TINY!!!</em>
-          </h3>
-          <h3>Can you help me out?</h3>
-        </TextBox>
-        <TextBox className={"d2 " + d2Vis + " size" + this.state.squareSize}>
-          <h2>Much better!</h2>
-          <h3>You're getting the hang of this!</h3>
-        </TextBox>
-      </div>
-    );
-  }
-
-  renderScene2() {
-    if (!this.state.storyFlags[flags.scene2Visible]) {
-      return null;
-    }
-
-    var squareWidth = 0;
-    if (this.state.squareSize == 0) {
-      squareWidth = 20;
-    } else {
-      squareWidth = 100 + 20 * this.state.squareSize;
-    }
-
-    var dialog = this.renderScene2Dialog();
-
-    return (
-      <Scene key={2}>
-        <Pillar
-          text="Set Size"
-          onClick={params => {
-            this.setState({ squareSize: params[0].value });
-            this.setStoryFlag(flags.scene3Visible);
-          }}
-        >
-          <Parameter
-            type="number"
-            label="Size"
-            removeFromInv={v => this.removeItemFromInv(v)}
-          />
-        </Pillar>
-        <Avatar img={square} width={squareWidth} imgClassName={"square"} />
-        {dialog}
-      </Scene>
-    );
-  }
-
-  renderScene3() {
-    if (!this.state.storyFlags[flags.scene3Visible]) {
-      return null;
-    }
-    return (
-      <Scene key={3} bgColour={this.state.bgColour} bgImage={paintSquiggle}>
-        <Pillar
-          text="Make Colour"
-          onClick={params =>
-            this.addItemToInv(_.map(params, p => p.value), "colour")
-          }
-        >
-          <Parameter
-            type="number"
-            label="Red"
-            removeFromInv={v => this.removeItemFromInv(v)}
-          />
-          <Parameter
-            type="number"
-            label="Green"
-            removeFromInv={v => this.removeItemFromInv(v)}
-          />
-          <Parameter
-            type="number"
-            label="Blue"
-            removeFromInv={v => this.removeItemFromInv(v)}
-          />
-        </Pillar>
-        <Pillar
-          text="Paint"
-          onClick={c => this.setState({ bgColour: calcColour(c[0].value) })}
-        >
-          <Parameter
-            type="colour"
-            label="Colour"
-            removeFromInv={v => this.removeItemFromInv(v)}
-          />
-        </Pillar>
-        <Avatar img={paintbrush} imgClassName={"paintbrush"} />
-      </Scene>
-    );
-  }
-
-  /**
-   * returns an array of all scenes to be rendered, ignoring those which return null
-   *  */
-  renderScenes() {
-    var renderers = [
-      () => this.renderScene1(),
-      () => this.renderScene2(),
-      () => this.renderScene3()
-    ];
-    var scenes = [];
-
-    renderers.forEach(renderFunc => {
-      var scene = renderFunc();
-      if (scene) {
-        scenes.push(scene);
-      }
-    });
-
-    return scenes;
-  }
-
-  render() {
-    var inventory = this.renderInventory();
-
-    var scenes = this.renderScenes();
-
-    return (
-      <div className="App">
-        {inventory}
-
-        <Nav
-          setActiveScene={i => this.setState({ activeScene: i })}
-          activeScene={this.state.activeScene}
-        >
-          {scenes}
-        </Nav>
-      </div>
     );
   }
 
@@ -237,7 +69,6 @@ class App extends Component {
     newInv = _.reject(newInv, i => i.id == vId);
     this.setState({ inv: newInv });
   }
-
   setStoryFlag(flag) {
     var newFlags = { ...this.state.storyFlags };
     newFlags[flag] = true;
@@ -245,5 +76,3 @@ class App extends Component {
     this.setState({ storyFlags: newFlags });
   }
 }
-
-export default App;
