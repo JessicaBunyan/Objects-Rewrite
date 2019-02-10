@@ -1,7 +1,8 @@
 var flags = {
   inventoryVisible: 4532349,
   scene2Visible: 343112,
-  scene3Visible: 12455310
+  scene3Visible: 12455310,
+  room1Complete: 1341112444
 };
 
 Object.freeze(flags);

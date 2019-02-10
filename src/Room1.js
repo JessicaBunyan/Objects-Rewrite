@@ -40,7 +40,7 @@ class Room1 extends Component {
           onClick={() => this.props.addItemToInv(randInt(1, 9))}
         />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
-        <TextBox>
+        <TextBox className={" d1 "}>
           <h2>
             <em>Numbers!</em>
           </h2>
@@ -179,10 +179,7 @@ class Room1 extends Component {
             removeFromInv={v => this.props.removeItemFromInv(v)}
           />
         </Pillar>
-        <Pillar
-          text="Paint"
-          onClick={c => this.setState({ bgColour: calcColour(c[0].value) })}
-        >
+        <Pillar text="Paint" onClick={c => this.paintScene3(c[0].value)}>
           <Parameter
             type="colour"
             label="Colour"
@@ -193,6 +190,14 @@ class Room1 extends Component {
         {dialog}
       </Scene>
     );
+  }
+
+  paintScene3(c) {
+    var colour = calcColour(c);
+    this.setState({ bgColour: colour });
+    if (isColourPurple(colour)) {
+      this.props.setStoryFlag(flags.room1Complete);
+    }
   }
 
   render() {
