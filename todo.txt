@@ -19,6 +19,8 @@ param hitboxes overlap so lower ones will get dropped into more often - guesswe 
 
 animation timings aren't right for entering/exiting scene 2 now
 
+better animation for dropping the wrong param type. Looks super weird trying to put number into a colour
+
 bug with adding colour to inventory
 
 disable dragging for everything that shouldn't be draggable.
