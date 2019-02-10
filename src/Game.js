@@ -6,7 +6,7 @@ import flags from "./storyFlags";
 import * as _ from "underscore";
 import { newVarId, combineRenders } from "./utils";
 import { Scene } from "./Scene";
-import placeholder from "./img/questionman.png";
+import room1Preview from "./img/room1preview.png";
 
 var c = {
   id: 999,
@@ -48,14 +48,10 @@ export class Game extends Component {
     return (
       <div className="nav-scene scene active c2">
         <Scene
-          bgImage={placeholder}
+          bgImage={room1Preview}
           onClick={() => this.setState({ activeRoom: 1 })}
-        >
-          <h2> test</h2>
-        </Scene>
-        <Scene>
-          <h2> test2</h2>
-        </Scene>
+        />
+        <Scene onClick={() => this.setState({ activeRoom: 2 })} />
       </div>
     );
   }

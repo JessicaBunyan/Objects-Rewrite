@@ -1,8 +1,6 @@
-implement purple checker
-implement dialog for getting wrong colour
 happy/sad paintbrush?
 
-
+too easy to double click and leave a room when you're trying to leave a scene
 
 Better animations for scene transitions
     - When you return after unlocking a scene its just there, want to show it appearing once you return to the nav
