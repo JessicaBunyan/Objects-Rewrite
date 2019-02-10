@@ -7,6 +7,7 @@ import * as _ from "underscore";
 import { newVarId, combineRenders } from "./utils";
 import { Scene } from "./Scene";
 import room1Preview from "./img/room1preview.png";
+import { Room2 } from "./Room2";
 
 var c = {
   id: 999,
@@ -33,7 +34,8 @@ export class Game extends Component {
 
     var scenes = combineRenders(
       () => this.renderNav(),
-      () => this.renderRoom1()
+      () => this.renderRoom1(),
+      () => this.renderRoom2()
     );
 
     return (
@@ -59,9 +61,22 @@ export class Game extends Component {
   renderRoom1() {
     return (
       <Room1
+        key={1}
         visible={this.state.activeRoom == 1}
         storyFlags={this.state.storyFlags}
-        inv={this.state.inv}
+        addItemToInv={(v, type) => this.addItemToInv(v, type)}
+        removeItemFromInv={vId => this.removeItemFromInv(vId)}
+        setStoryFlag={f => this.setStoryFlag(f)}
+        exitRoom={() => this.setState({ activeRoom: -1 })}
+      />
+    );
+  }
+  renderRoom2() {
+    return (
+      <Room2
+        key={2}
+        visible={this.state.activeRoom == 2}
+        storyFlags={this.state.storyFlags}
         addItemToInv={(v, type) => this.addItemToInv(v, type)}
         removeItemFromInv={vId => this.removeItemFromInv(vId)}
         setStoryFlag={f => this.setStoryFlag(f)}
