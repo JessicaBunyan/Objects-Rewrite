@@ -8,7 +8,11 @@ export class Scene extends Component {
   render() {
     return (
       <div
-        className={"scene " + (this.props.active == true ? "active" : "")}
+        className={
+          "scene " +
+          (this.props.active == true ? "active" : "") +
+          (this.props.hidden ? " hidden " : "")
+        }
         style={{
           backgroundColor: this.props.bgColour,
           backgroundImage: "url(" + this.props.bgImage + ")"

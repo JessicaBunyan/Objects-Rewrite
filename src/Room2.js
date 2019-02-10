@@ -7,6 +7,7 @@ import { Pillar } from "./Pillar";
 import { Avatar } from "./Avatar";
 import { Scene } from "./Scene";
 import { TextBox } from "./TextBox";
+import { Parameter } from "./Parameter";
 
 export class Room2 extends Component {
   constructor(props) {
@@ -19,7 +20,9 @@ export class Room2 extends Component {
   renderScene1() {
     return (
       <Scene key={1}>
-        <Pillar text="Get Number" />
+        <Pillar text="Get Number">
+          <Parameter />
+        </Pillar>
         <Avatar imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
           <h2>

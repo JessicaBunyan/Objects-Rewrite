@@ -8,6 +8,10 @@ import { newVarId, combineRenders } from "./utils";
 import { Scene } from "./Scene";
 import room1Preview from "./img/room1preview.png";
 import { Room2 } from "./Room2";
+import { Pillar } from "./Pillar";
+import { Parameter } from "./Parameter";
+import { Avatar } from "./Avatar";
+import { Nav } from "./Nav";
 
 var c = {
   id: 999,
@@ -24,7 +28,7 @@ export class Game extends Component {
     this.state = {
       storyFlags: sFlags,
       inv: [c],
-      activeRoom: 1
+      activeRoom: 0
       // inv: []
     };
   }
@@ -48,21 +52,42 @@ export class Game extends Component {
 
   renderNav() {
     return (
-      <div className="nav-scene scene active c2">
+      <Nav
+        setActiveScene={i => this.setState({ activeRoom: i })}
+        activeScene={this.state.activeRoom}
+      >
+        <Scene bgImage={room1Preview} hidden={this.state.activeRoom == 0} />
+        <Scene hidden={this.state.activeRoom == 1} />
         <Scene
-          bgImage={room1Preview}
-          onClick={() => this.setState({ activeRoom: 1 })}
-        />
-        <Scene onClick={() => this.setState({ activeRoom: 2 })} />
-      </div>
+          hideen={this.state.activeRoom == 2}
+          key={3}
+          active={this.state.activeRoom == 2}
+          // onClick={() => this.setState({ activeRoom: 3 })}
+          storyFlags={this.state.storyFlags}
+          addItemToInv={(v, type) => this.addItemToInv(v, type)}
+          removeItemFromInv={vId => this.removeItemFromInv(vId)}
+          setStoryFlag={f => this.setStoryFlag(f)}
+          deactivate={() => this.setState({ activeRoom: -1 })}
+        >
+          <Pillar text="Open">
+            <Parameter />
+            <Parameter />
+            <Parameter />
+          </Pillar>
+          <Avatar imgClassName={"door"} />
+          {/* <TextBox className={" d1 "}> */}
+          {/* </TextBox> */}
+        </Scene>
+        {/* </div> */}
+      </Nav>
     );
   }
 
   renderRoom1() {
     return (
       <Room1
-        key={1}
-        visible={this.state.activeRoom == 1}
+        key={0}
+        visible={this.state.activeRoom == 0}
         storyFlags={this.state.storyFlags}
         addItemToInv={(v, type) => this.addItemToInv(v, type)}
         removeItemFromInv={vId => this.removeItemFromInv(vId)}
@@ -74,8 +99,8 @@ export class Game extends Component {
   renderRoom2() {
     return (
       <Room2
-        key={2}
-        visible={this.state.activeRoom == 2}
+        key={1}
+        visible={this.state.activeRoom == 1}
         storyFlags={this.state.storyFlags}
         addItemToInv={(v, type) => this.addItemToInv(v, type)}
         removeItemFromInv={vId => this.removeItemFromInv(vId)}
