@@ -37,6 +37,21 @@ export function hexToRgb(hex) {
     : null;
 }
 
+export function isColourPurple(colour) {
+  var result = hexToRgb(colour);
+  var blueGreenDiff = result.b - result.g;
+  var redGreenDiff = result.r - result.g;
+  if (
+    (result.r + result.b) / 2 > 100 && // red and blue avg. over 100
+    result.g <= result.r &&
+    result.g <= result.b &&
+    (blueGreenDiff > 19 || redGreenDiff > 19)
+  ) {
+    return true;
+  }
+  return false;
+}
+
 export function /**
  * returns an array of all scenes to be rendered, ignoring those which return null
  *  */

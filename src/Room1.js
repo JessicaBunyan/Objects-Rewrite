@@ -15,7 +15,8 @@ import {
   newVarId,
   calcColour,
   combineRenders,
-  hexToRgb
+  hexToRgb,
+  isColourPurple
 } from "./utils";
 import { TextBox } from "./TextBox";
 import flags from "./storyFlags";
@@ -121,7 +122,7 @@ class Room1 extends Component {
       d2Class += "hidden";
       d3Class += "hidden";
     } else {
-      if (this.colourIsMatch(this.state.bgColour)) {
+      if (isColourPurple(this.state.bgColour)) {
         d1Class += "hidden";
         d3Class += "hidden";
       } else {
@@ -192,20 +193,6 @@ class Room1 extends Component {
         {dialog}
       </Scene>
     );
-  }
-
-  colourIsMatch(colour) {
-    console.log(colour);
-    var result = hexToRgb(colour);
-    if (
-      result.r > 100 &&
-      result.b > 100 &&
-      result.g < result.r &&
-      result.g < result.b
-    ) {
-      return true;
-    }
-    return false;
   }
 
   render() {
