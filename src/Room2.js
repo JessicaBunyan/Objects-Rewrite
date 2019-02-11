@@ -20,13 +20,13 @@ export class Room2 extends Component {
   renderScene1() {
     return (
       <Scene key={1}>
-        <Pillar text="Get Number">
+        <Pillar text="TEST">
           <Parameter />
         </Pillar>
         <Avatar imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
           <h2>
-            <em>Numbers!</em>
+            <em>TEST</em>
           </h2>
           <h3>
             Get your <em>Numbers</em> here!
@@ -43,13 +43,13 @@ export class Room2 extends Component {
 
     var footer = <SceneFooter action={() => this.props.exitRoom()} />;
 
-    var cName = "room room2 ";
-    if (!this.props.visible) {
-      cName += " hidden";
+    var cName = "room room2 scene ";
+    if (this.props.active) {
+      cName += " active";
     }
 
     return (
-      <div className={cName}>
+      <div className={cName} onClick={() => this.props.onClick()}>
         <Nav
           setActiveScene={i => this.setState({ activeScene: i })}
           activeScene={this.state.activeScene}

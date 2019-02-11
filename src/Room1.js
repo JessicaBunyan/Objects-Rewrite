@@ -212,12 +212,12 @@ class Room1 extends Component {
       <SceneFooter action={() => this.props.exitRoom()} />
     ) : null;
 
-    var cName = "room room1 ";
-    if (!this.props.visible) {
-      cName += " hidden";
+    var cName = "room room1 scene";
+    if (this.props.active) {
+      cName += " active";
     }
     return (
-      <div className={cName}>
+      <div className={cName} onClick={() => this.props.onClick()}>
         <Nav
           setActiveScene={i => this.setState({ activeScene: i })}
           activeScene={this.state.activeScene}

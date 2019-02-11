@@ -28,7 +28,7 @@ export class Game extends Component {
     this.state = {
       storyFlags: sFlags,
       inv: [c],
-      activeRoom: 0
+      activeRoom: -1
       // inv: []
     };
   }
@@ -37,9 +37,9 @@ export class Game extends Component {
     var inventory = this.renderInventory();
 
     var scenes = combineRenders(
-      () => this.renderNav(),
-      () => this.renderRoom1(),
-      () => this.renderRoom2()
+      () => this.renderNav()
+      // () => this.renderRoom1(),
+      // () => this.renderRoom2()
     );
 
     return (
@@ -56,10 +56,26 @@ export class Game extends Component {
         setActiveScene={i => this.setState({ activeRoom: i })}
         activeScene={this.state.activeRoom}
       >
-        <Scene bgImage={room1Preview} hidden={this.state.activeRoom == 0} />
-        <Scene hidden={this.state.activeRoom == 1} />
+        {/* <Scene bgImage={room1Preview} hidden={this.state.activeRoom == 0} /> */}
+        <Room1
+          previewImg={room1Preview}
+          key={0}
+          storyFlags={this.state.storyFlags}
+          addItemToInv={(v, type) => this.addItemToInv(v, type)}
+          removeItemFromInv={vId => this.removeItemFromInv(vId)}
+          setStoryFlag={f => this.setStoryFlag(f)}
+          exitRoom={() => this.setState({ activeRoom: -1 })}
+        />
+        <Room2
+          key={1}
+          storyFlags={this.state.storyFlags}
+          addItemToInv={(v, type) => this.addItemToInv(v, type)}
+          removeItemFromInv={vId => this.removeItemFromInv(vId)}
+          setStoryFlag={f => this.setStoryFlag(f)}
+          exitRoom={() => this.setState({ activeRoom: -1 })}
+        />
+
         <Scene
-          hideen={this.state.activeRoom == 2}
           key={3}
           active={this.state.activeRoom == 2}
           // onClick={() => this.setState({ activeRoom: 3 })}
