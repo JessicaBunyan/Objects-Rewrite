@@ -86,7 +86,7 @@ export class Playground extends Component {
             <Parameter
               label={"password"}
               type={"string"}
-              removeFromInv={v => this.removeFromInv(v)}
+              removeFromInv={v => this.removeItemFromInv(v)}
             />
             <Parameter />
           </Pillar>
