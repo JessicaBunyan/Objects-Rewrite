@@ -17,6 +17,7 @@
   .variable {
     opacity: 0;
     transition: opacity 0.5s 1s ease;
+    display: inline-block;
 
     &.string {
       margin-top: 19px;
@@ -31,19 +32,9 @@
     }
   }
 }
-.variable {
-  vertical-align: top;
-  margin: 10px;
-  text-align: center;
-  display: inline-block;
-}
-.number {
-  &.variable {
-    border: solid 1px black;
-    background-color: white;
-  }
-  line-height: @numberHeight;
 
+.number {
+  line-height: @numberHeight;
   width: @numberWidth;
   height: @numberHeight;
 }
@@ -57,22 +48,12 @@
     background-size: contain;
   }
 }
+
 .string {
   padding: 2px;
-
   vertical-align: middle;
   line-height: 20px;
   font-size: 16px;
   width: 80px;
   height: calc(@numberHeight ~"/ 2");
-
-  &.variable {
-    background-color: white;
-    border: solid 1px black;
-  }
-}
-
-img.colour-drop {
-  width: @numberWidth;
-  height: @numberHeight;
 }

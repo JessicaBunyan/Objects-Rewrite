@@ -1,0 +1,77 @@
+.parameter .variable {
+  //variables fit snugly in param box
+  margin: 0;
+  border: none;
+}
+
+.param-region {
+  position: absolute;
+  z-index: 15;
+  bottom: 0;
+  left: 40px;
+  height: calc(@pillarHeight ~"- 20px");
+}
+.param-container {
+  margin: 2px;
+  display: block;
+  width: @centralPillarWidth;
+  height: calc(@numberHeight ~" + 16px");
+  border: solid 1px #666;
+  position: relative;
+  background: #999;
+
+  .label {
+    margin: 2px;
+    position: absolute;
+    z-index: 15;
+    line-height: calc(@numberHeight ~" + 16px");
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    &.string {
+      margin: 0;
+      height: 50%;
+      width: 100%;
+      text-align: left;
+      line-height: 28px;
+      padding-left: 6px;
+    }
+  }
+
+  .parameter {
+    margin: 2px;
+    background-color: #333333;
+    -display: inline-block;
+    position: absolute;
+    bottom: 6px;
+    z-index: 20;
+    right: 4px;
+    transition: box-shadow 0.2s;
+    &.colour,
+    .colour {
+      background-image: url("../img/colourDropDark.png");
+    }
+    &.string {
+      bottom: 0px;
+      right: 0px;
+    }
+
+    &.missing {
+      border-color: #c53c3c;
+      box-shadow: inset 0 0 0 2px #c53c3c;
+    }
+
+    .param-hitbox {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: -50%;
+      top: -50%;
+    }
+  }
+}
