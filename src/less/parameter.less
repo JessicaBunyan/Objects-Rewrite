@@ -1,7 +1,12 @@
+@import "variables.less";
+
 .parameter .variable {
   //variables fit snugly in param box
   margin: 0;
   border: none;
+  top: 0px;
+  left: 0px;
+  position: absolute;
 }
 
 .param-region {
@@ -52,6 +57,7 @@
     z-index: 20;
     right: 4px;
     transition: box-shadow 0.2s;
+
     &.colour,
     .colour {
       background-image: url("../img/colourDropDark.png");
