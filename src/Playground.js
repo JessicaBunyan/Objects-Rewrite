@@ -116,7 +116,6 @@ export class Playground extends Component {
     };
 
     var newInv = [...this.state.inv, variable];
-    // newInv.push(variable);
 
     this.setState({ inv: newInv });
 

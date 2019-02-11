@@ -20,16 +20,17 @@ export class Room2 extends Component {
   renderScene1() {
     return (
       <Scene key={1}>
-        <Pillar text="TEST">
-          <Parameter />
-        </Pillar>
+        <Pillar
+          text="Get String"
+          onClick={() => this.props.addItemToInv("foo", "string")}
+        />
         <Avatar imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
           <h2>
             <em>TEST</em>
           </h2>
           <h3>
-            Get your <em>Numbers</em> here!
+            Get your <em>Strings</em> here!
           </h3>
         </TextBox>
       </Scene>
