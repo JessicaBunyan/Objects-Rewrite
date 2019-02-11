@@ -1,6 +1,13 @@
 happy/sad paintbrush?
 
+
+placeholder images for rooms
 too easy to double click and leave a room when you're trying to leave a scene
+    - this makes it look like the scene is occupying the whole room / there are no other Scenes
+        - either move the "leave scene" button somewhere else
+        - or disable the "leave room" button as soon as you open a scene
+
+
 
 Better animations for scene transitions
     - When you return after unlocking a scene its just there, want to show it appearing once you return to the nav

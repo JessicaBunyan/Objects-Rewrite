@@ -1,6 +1,6 @@
 @import "variables.less";
 
-.scene.nav-scene {
+.nav-scene {
   margin: 0px auto 0px auto;
   position: absolute;
   display: block;
@@ -23,6 +23,10 @@
         &.hidden {
           opacity: 0;
         }
+      }
+
+      .nav-scene .scene.active .footer {
+        z-index: 15;
       }
       .footer {
         z-index: 10;

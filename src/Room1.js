@@ -209,7 +209,7 @@ class Room1 extends Component {
     );
 
     var footer = this.props.storyFlags[flags.room1Complete] ? (
-      <SceneFooter action={() => this.props.exitRoom()} />
+      <SceneFooter action={this.props.deactivate} />
     ) : null;
 
     var cName = "room room1 scene";

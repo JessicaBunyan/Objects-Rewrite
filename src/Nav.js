@@ -21,7 +21,9 @@ export class Nav extends Component {
                   return;
                 }
               : () => this.props.setActiveScene(index),
-            deactivate: () => this.props.setActiveScene(-1)
+            deactivate: () => {
+              this.props.setActiveScene(-1);
+            }
           });
         })}
       </div>

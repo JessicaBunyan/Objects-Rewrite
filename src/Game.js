@@ -64,7 +64,6 @@ export class Game extends Component {
           addItemToInv={(v, type) => this.addItemToInv(v, type)}
           removeItemFromInv={vId => this.removeItemFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
-          exitRoom={() => this.setState({ activeRoom: -1 })}
         />
         <Room2
           key={1}
@@ -72,7 +71,6 @@ export class Game extends Component {
           addItemToInv={(v, type) => this.addItemToInv(v, type)}
           removeItemFromInv={vId => this.removeItemFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
-          exitRoom={() => this.setState({ activeRoom: -1 })}
         />
 
         <Scene
@@ -83,7 +81,7 @@ export class Game extends Component {
           addItemToInv={(v, type) => this.addItemToInv(v, type)}
           removeItemFromInv={vId => this.removeItemFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
-          deactivate={() => this.setState({ activeRoom: -1 })}
+          // deactivate={() => this.setState({ activeRoom: -1 })}
         >
           <Pillar text="Open">
             <Parameter />
@@ -96,33 +94,6 @@ export class Game extends Component {
         </Scene>
         {/* </div> */}
       </Nav>
-    );
-  }
-
-  renderRoom1() {
-    return (
-      <Room1
-        key={0}
-        visible={this.state.activeRoom == 0}
-        storyFlags={this.state.storyFlags}
-        addItemToInv={(v, type) => this.addItemToInv(v, type)}
-        removeItemFromInv={vId => this.removeItemFromInv(vId)}
-        setStoryFlag={f => this.setStoryFlag(f)}
-        exitRoom={() => this.setState({ activeRoom: -1 })}
-      />
-    );
-  }
-  renderRoom2() {
-    return (
-      <Room2
-        key={1}
-        visible={this.state.activeRoom == 1}
-        storyFlags={this.state.storyFlags}
-        addItemToInv={(v, type) => this.addItemToInv(v, type)}
-        removeItemFromInv={vId => this.removeItemFromInv(vId)}
-        setStoryFlag={f => this.setStoryFlag(f)}
-        exitRoom={() => this.setState({ activeRoom: -1 })}
-      />
     );
   }
 

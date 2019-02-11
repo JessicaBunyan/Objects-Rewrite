@@ -41,7 +41,7 @@ export class Room2 extends Component {
     //   () => this.renderScene2(),
     //   () => this.renderScene3()
 
-    var footer = <SceneFooter action={() => this.props.exitRoom()} />;
+    var footer = <SceneFooter action={() => this.props.deactivate} />;
 
     var cName = "room room2 scene ";
     if (this.props.active) {
