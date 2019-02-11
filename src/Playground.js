@@ -22,7 +22,7 @@ var c = {
 var sFlags = {};
 sFlags[flags.room1Complete] = true;
 
-export class Game extends Component {
+export class Playground extends Component {
   constructor(props) {
     super(props);
     this.state = {

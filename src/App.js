@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Game } from "./Game";
+import { Playground } from "./Playground";
 
 class App extends Component {
   render() {
-    return <Game />;
+    return <Playground />;
   }
 }
 
