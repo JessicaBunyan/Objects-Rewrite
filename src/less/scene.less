@@ -26,6 +26,9 @@
     opacity: 0;
     z-index: -1 !important;
   }
+  .footer {
+    display: none;
+  }
 
   .avatar {
     position: absolute;
@@ -59,6 +62,10 @@
   &:hover img.back-chevron {
     opacity: 0.45;
   }
+}
+
+.scene.active > .footer {
+  display: block;
 }
 
 .room > .footer img.back-chevron {

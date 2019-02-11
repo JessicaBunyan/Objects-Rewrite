@@ -5,7 +5,7 @@ export class Nav extends Component {
     super(props);
   }
   render() {
-    var cName = " nav-scene c" + React.Children.count(this.props.children);
+    var cName = " nav c" + React.Children.count(this.props.children);
     if (this.props.active) {
       cName += " active";
     }
