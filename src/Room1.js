@@ -218,9 +218,11 @@ class Room1 extends Component {
     }
     return (
       <div className={cName} onClick={() => this.props.onClick()}>
+        <img className="preview" src={this.props.previewImg} />
         <Nav
           setActiveScene={i => this.setState({ activeScene: i })}
           activeScene={this.state.activeScene}
+          active={this.props.active}
         >
           {scenes}
         </Nav>

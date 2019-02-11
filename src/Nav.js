@@ -5,12 +5,13 @@ export class Nav extends Component {
     super(props);
   }
   render() {
+    var cName = " nav-scene c" + React.Children.count(this.props.children);
+    if (this.props.active) {
+      cName += " active";
+    }
+
     return (
-      <div
-        className={
-          "scene nav-scene active c" + React.Children.count(this.props.children)
-        }
-      >
+      <div className={cName}>
         {React.Children.map(this.props.children, (child, index) => {
           var isActive = this.props.activeScene == index;
           return React.cloneElement(child, {
