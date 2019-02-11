@@ -17,8 +17,6 @@
   transition-timing-function: ease;
   transition-duration: 1s;
 
-  //   overflow: hidden;
-
   &.active {
     transform: none;
   }
@@ -29,17 +27,17 @@
   .footer {
     display: none;
   }
+}
 
-  .avatar {
-    position: absolute;
-    bottom: 200px;
-    right: 30px;
-    width: 33%;
-    img {
-      width: 200px;
-      margin: 0 auto;
-      display: block;
-    }
+.avatar {
+  position: absolute;
+  bottom: 200px;
+  right: 30px;
+  width: 33%;
+  img {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
   }
 }
 
@@ -66,8 +64,7 @@
 
 .scene.active > .footer {
   display: block;
-}
-
-.room > .footer img.back-chevron {
-  display: block;
+  img.back-chevron {
+    display: block;
+  }
 }
