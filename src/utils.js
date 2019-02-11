@@ -12,6 +12,14 @@ function scaleInt(num) {
   return Math.floor((num / 10) * 255).toString(16); //tostring(16) turns it to hexadecimal
 }
 
+export function getTearDropImgSource(colourCode) {
+  return (
+    'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 42">        <path fill="' +
+    colourCode +
+    '" stroke="#000" stroke-width="1.5" d="M15 3&#10;  Q16.5 6.8 25 18&#10;  A12.8 12.8 0 1 1 5 18&#10;  Q13.5 6.8 15 3z"/>      </svg>'
+  );
+}
+
 /**
  *
  * @param {array of 3 values (1-9) representing r, g and b}

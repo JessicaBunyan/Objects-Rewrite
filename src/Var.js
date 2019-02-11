@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { calcColour } from "./utils";
+import { calcColour, getTearDropImgSource } from "./utils";
 import colourDrop from "./img/colourDrop.png";
 
 export class Var extends Component {
@@ -7,24 +7,30 @@ export class Var extends Component {
     if (!this.props.var) {
       return null;
     }
-
     var v = this.props.var;
 
-    var markup = v.type == "colour" ? "" : v.value;
-    var styles =
-      v.type == "colour"
-        ? { backgroundColor: calcColour(this.props.var.value) }
-        : {};
+    if (v.type == "colour") {
+      return (
+        <img
+          className="variable colour"
+          draggable="true"
+          onDragStart={event => this.dragStart(event)}
+          onDragEnd={event => this.dragEnd(event)}
+          src={getTearDropImgSource(calcColour(this.props.var.value))}
+          id={"var_" + v.id}
+        />
+      );
+    }
+
     return (
       <div
         draggable={this.props.draggable}
         onDragStart={event => this.dragStart(event)}
         onDragEnd={event => this.dragEnd(event)}
         className={"variable " + v.type}
-        style={styles}
         id={"var_" + v.id}
       >
-        {markup}
+        {v.value}
       </div>
     );
   }
