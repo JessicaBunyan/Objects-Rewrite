@@ -10,7 +10,7 @@ export class Var extends Component {
 
     var v = this.props.var;
 
-    var markup = v.type == "number" ? v.value : "";
+    var markup = v.type == "colour" ? "" : v.value;
     var styles =
       v.type == "colour"
         ? { backgroundColor: calcColour(this.props.var.value) }

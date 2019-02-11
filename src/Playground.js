@@ -36,11 +36,7 @@ export class Playground extends Component {
   render() {
     var inventory = this.renderInventory();
 
-    var scenes = combineRenders(
-      () => this.renderNav()
-      // () => this.renderRoom1(),
-      // () => this.renderRoom2()
-    );
+    var scenes = combineRenders(() => this.renderNav());
 
     return (
       <div className="Game">
@@ -57,7 +53,6 @@ export class Playground extends Component {
         activeScene={this.state.activeRoom}
         active={true}
       >
-        {/* <Scene bgImage={room1Preview} hidden={this.state.activeRoom == 0} /> */}
         <Room1
           previewImg={room1Preview}
           key={0}
@@ -77,23 +72,26 @@ export class Playground extends Component {
         <Scene
           key={3}
           active={this.state.activeRoom == 2}
-          // onClick={() => this.setState({ activeRoom: 3 })}
           storyFlags={this.state.storyFlags}
           addItemToInv={(v, type) => this.addItemToInv(v, type)}
           removeItemFromInv={vId => this.removeItemFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
-          // deactivate={() => this.setState({ activeRoom: -1 })}
         >
           <Pillar text="Open">
-            <Parameter />
-            <Parameter />
+            <Parameter
+              label={"code"}
+              type={"number"}
+              removeFromInv={v => this.removeItemFromInv(v)}
+            />
+            <Parameter
+              label={"password"}
+              type={"string"}
+              removeFromInv={v => this.removeFromInv(v)}
+            />
             <Parameter />
           </Pillar>
           <Avatar imgClassName={"door"} />
-          {/* <TextBox className={" d1 "}> */}
-          {/* </TextBox> */}
         </Scene>
-        {/* </div> */}
       </Nav>
     );
   }
