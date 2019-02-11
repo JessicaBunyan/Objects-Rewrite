@@ -77,7 +77,7 @@ export class Playground extends Component {
           removeItemFromInv={vId => this.removeItemFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         >
-          <Pillar text="Open">
+          <Pillar text="Open" onClick={params => this.tryOpenDoor(params)}>
             <Parameter
               label={"Code"}
               type={"number"}
@@ -88,12 +88,17 @@ export class Playground extends Component {
               type={"string"}
               removeFromInv={v => this.removeItemFromInv(v)}
             />
-            <Parameter />
+            {/* <Parameter /> */}
           </Pillar>
           <Avatar imgClassName={"door"} />
         </Scene>
       </Nav>
     );
+  }
+
+  tryOpenDoor(params) {
+    console.log("door open tried with params: ");
+    console.log(params);
   }
 
   renderInventory() {
