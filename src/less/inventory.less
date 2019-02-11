@@ -34,8 +34,10 @@
   display: inline-block;
 }
 .number {
-  border: solid 1px black;
-  background-color: white;
+  &.variable {
+    border: solid 1px black;
+    background-color: white;
+  }
   line-height: @numberHeight;
 
   width: @numberWidth;
@@ -45,19 +47,25 @@
 .colour {
   width: @numberWidth;
   height: @numberHeight;
-  background-image: url("../img/colourDrop.png");
-  background-size: contain;
+  &.variable,
+  &.parameter {
+    background-image: url("../img/colourDrop.png");
+    background-size: contain;
+  }
 }
-
 .string {
-  background-color: white;
   padding: 2px;
-  border: solid 1px black;
+
   vertical-align: middle;
   line-height: 20px;
   font-size: 16px;
   width: 80px;
   height: calc(@numberHeight ~"/ 2");
+
+  &.variable {
+    background-color: white;
+    border: solid 1px black;
+  }
 }
 
 img.colour-drop {

@@ -13,7 +13,7 @@ export class Parameter extends Component {
         : "";
     return (
       <div className="param-container">
-        <div className="label">
+        <div className={"label " + this.props.type}>
           <h3>{this.props.label}</h3>{" "}
         </div>
         <div className={cName}>

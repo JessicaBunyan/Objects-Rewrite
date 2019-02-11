@@ -79,12 +79,12 @@ export class Playground extends Component {
         >
           <Pillar text="Open">
             <Parameter
-              label={"code"}
+              label={"Code"}
               type={"number"}
               removeFromInv={v => this.removeItemFromInv(v)}
             />
             <Parameter
-              label={"password"}
+              label={"Password"}
               type={"string"}
               removeFromInv={v => this.removeItemFromInv(v)}
             />
