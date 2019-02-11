@@ -19,16 +19,22 @@
     top: -@sceneBorderWidth;
   }
 
-  > .scene {
-    &.active {
-      z-index: 9;
-      transform: none !important;
+  .scene {
+    pointer-events: none;
+  }
 
-      .text-box {
-        opacity: 1;
-        &.hidden {
-          opacity: 0;
-        }
+  &.active > .scene {
+    pointer-events: all;
+  }
+
+  > .scene.active {
+    z-index: 9;
+    transform: none !important;
+
+    .text-box {
+      opacity: 1;
+      &.hidden {
+        opacity: 0;
       }
     }
   }

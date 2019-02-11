@@ -55,6 +55,7 @@ export class Game extends Component {
       <Nav
         setActiveScene={i => this.setState({ activeRoom: i })}
         activeScene={this.state.activeRoom}
+        active={true}
       >
         {/* <Scene bgImage={room1Preview} hidden={this.state.activeRoom == 0} /> */}
         <Room1
