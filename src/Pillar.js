@@ -19,7 +19,7 @@ export class Pillar extends Component {
   render() {
     return (
       <div className="pillar-region">
-        <img src={postbox} />
+        <img className="postbox" src={postbox} />
         <div className="param-region">
           {React.Children.map(this.props.children, (child, index) => {
             return React.cloneElement(
