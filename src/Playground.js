@@ -79,11 +79,6 @@ export class Playground extends Component {
         >
           <Pillar text="Open" onClick={params => this.tryOpenDoor(params)}>
             <Parameter
-              label={"Code"}
-              type={"number"}
-              removeFromInv={v => this.removeFromInv(v)}
-            />
-            <Parameter
               label={"Password"}
               type={"string"}
               removeFromInv={v => this.removeFromInv(v)}
