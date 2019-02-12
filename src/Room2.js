@@ -57,6 +57,16 @@ export class Room2 extends Component {
             removeFromInv={v => this.props.removeFromInv(v)}
           />
         </Pillar>
+        <Pillar
+          text="To String"
+          onClick={params => this.props.addItemToInv(params[0].value, "string")}
+        >
+          <Parameter
+            label="Number"
+            type="number"
+            removeFromInv={v => this.props.removeFromInv(v)}
+          />
+        </Pillar>
       </Scene>
     );
   }
