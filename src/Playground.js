@@ -12,6 +12,7 @@ import { Pillar } from "./Pillar";
 import { Parameter } from "./Parameter";
 import { Avatar } from "./Avatar";
 import { Nav } from "./Nav";
+import door from "./img/door.png";
 
 var c = {
   id: 999,
@@ -85,7 +86,7 @@ export class Playground extends Component {
             />
             {/* <Parameter /> */}
           </Pillar>
-          <Avatar imgClassName={"door"} />
+          <Avatar className="av-door" imgClassName={"door"} img={door} />
         </Scene>
       </Nav>
     );

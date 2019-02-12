@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class Avatar extends Component {
   render() {
     return (
-      <div className="avatar">
+      <div className={"avatar " + this.props.className}>
         <img
           className={this.props.imgClassName}
           src={this.props.img}
