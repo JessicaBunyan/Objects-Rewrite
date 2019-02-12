@@ -1,5 +1,7 @@
 happy/sad paintbrush?
 
+textboxes are still showing when not viewing a scene
+
 still a lot of overlap in the render methods of room1 and room2. Can we move this out somehow?
 - Whats the same between them  
     - footer ( though theres a condition in room1);

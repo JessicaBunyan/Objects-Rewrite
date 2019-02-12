@@ -106,7 +106,7 @@ class Room1 extends Component {
           <Parameter
             type="number"
             label="Size"
-            removeFromInv={v => this.props.removeItemFromInv(v)}
+            removeFromInv={v => this.props.removeFromInv(v)}
           />
         </Pillar>
         <Avatar img={square} width={squareWidth} imgClassName={"square"} />
@@ -167,24 +167,24 @@ class Room1 extends Component {
           <Parameter
             type="number"
             label="Red"
-            removeFromInv={v => this.props.removeItemFromInv(v)}
+            removeFromInv={v => this.props.removeFromInv(v)}
           />
           <Parameter
             type="number"
             label="Green"
-            removeFromInv={v => this.props.removeItemFromInv(v)}
+            removeFromInv={v => this.props.removeFromInv(v)}
           />
           <Parameter
             type="number"
             label="Blue"
-            removeFromInv={v => this.props.removeItemFromInv(v)}
+            removeFromInv={v => this.props.removeFromInv(v)}
           />
         </Pillar>
         <Pillar text="Paint" onClick={c => this.paintScene3(c[0].value)}>
           <Parameter
             type="colour"
             label="Colour"
-            removeFromInv={v => this.props.removeItemFromInv(v)}
+            removeFromInv={v => this.props.removeFromInv(v)}
           />
         </Pillar>
         <Avatar img={paintbrush} imgClassName={"paintbrush"} />

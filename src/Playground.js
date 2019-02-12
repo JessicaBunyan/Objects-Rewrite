@@ -58,14 +58,14 @@ export class Playground extends Component {
           key={0}
           storyFlags={this.state.storyFlags}
           addItemToInv={(v, type) => this.addItemToInv(v, type)}
-          removeItemFromInv={vId => this.removeItemFromInv(vId)}
+          removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         />
         <Room2
           key={1}
           storyFlags={this.state.storyFlags}
           addItemToInv={(v, type) => this.addItemToInv(v, type)}
-          removeItemFromInv={vId => this.removeItemFromInv(vId)}
+          removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         />
 
@@ -74,19 +74,19 @@ export class Playground extends Component {
           active={this.state.activeRoom == 2}
           storyFlags={this.state.storyFlags}
           addItemToInv={(v, type) => this.addItemToInv(v, type)}
-          removeItemFromInv={vId => this.removeItemFromInv(vId)}
+          removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         >
           <Pillar text="Open" onClick={params => this.tryOpenDoor(params)}>
             <Parameter
               label={"Code"}
               type={"number"}
-              removeFromInv={v => this.removeItemFromInv(v)}
+              removeFromInv={v => this.removeFromInv(v)}
             />
             <Parameter
               label={"Password"}
               type={"string"}
-              removeFromInv={v => this.removeItemFromInv(v)}
+              removeFromInv={v => this.removeFromInv(v)}
             />
             {/* <Parameter /> */}
           </Pillar>
@@ -129,7 +129,7 @@ export class Playground extends Component {
       this.setStoryFlag(flags.scene2Visible);
     }, 1); // timeout needed for css anmiations
   }
-  removeItemFromInv(vId) {
+  removeFromInv(vId) {
     console.log("in remoev item rfom inv: " + vId);
     console.log(this.state.inv);
     let newInv = this.state.inv;

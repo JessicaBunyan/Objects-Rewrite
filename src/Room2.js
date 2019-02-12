@@ -37,9 +37,35 @@ export class Room2 extends Component {
     );
   }
 
+  renderScene2() {
+    return (
+      <Scene key={2}>
+        <Pillar
+          text="Combine"
+          onClick={params =>
+            this.props.addItemToInv(params[0].value + params[1].value, "string")
+          }
+        >
+          <Parameter
+            label="String 1"
+            type="string"
+            removeFromInv={v => this.props.removeFromInv(v)}
+          />
+          <Parameter
+            label="String 2"
+            type="string"
+            removeFromInv={v => this.props.removeFromInv(v)}
+          />
+        </Pillar>
+      </Scene>
+    );
+  }
+
   render() {
-    var scenes = combineRenders(() => this.renderScene1());
-    //   () => this.renderScene2(),
+    var scenes = combineRenders(
+      () => this.renderScene1(),
+      () => this.renderScene2()
+    );
     //   () => this.renderScene3()
 
     var footer = <SceneFooter action={this.props.deactivate} />;
