@@ -47,6 +47,7 @@ export class Pillar extends Component {
             ? true
             : false
         }
+        removeFromInv={this.props.removeFromInv}
       >
         <Var var={this.state.paramValues[index]} />
       </Parameter>
