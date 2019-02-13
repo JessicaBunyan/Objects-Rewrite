@@ -16,6 +16,16 @@ export class Pillar extends Component {
       buttonPressFailed: false
     };
   }
+
+  renderParams() {
+    var paramJsx = [];
+    this.props.params.forEach((p, index) => {
+      paramJsx.push(this.renderParams(p, index));
+    });
+  }
+
+  renderParam(p, index) {}
+
   render() {
     return (
       <div className="pillar-region">
