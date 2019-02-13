@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import postbox from "./img/postboxGrey.png";
 import { Button } from "./Button";
 import { Var } from "./Var";
+import { Parameter } from "./Parameter";
 
 export class Pillar extends Component {
   constructor(props) {
@@ -24,7 +25,21 @@ export class Pillar extends Component {
     });
   }
 
-  renderParam(p, index) {}
+  renderParam(p, index) {
+    return (
+      <Parameter
+        updateState={v => this.updateParamVal(index, v)}
+        hasVar={this.state.paramValues[index]}
+        missingAnimation={
+          !this.state.paramValues[index] && this.state.buttonPressFailed
+            ? true
+            : false
+        }
+      >
+        <Var var={this.state.paramValues[index]} />
+      </Parameter>
+    );
+  }
 
   render() {
     return (
