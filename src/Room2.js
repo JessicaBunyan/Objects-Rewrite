@@ -50,60 +50,39 @@ export class Room2 extends Component {
               type: "string"
             })
           }
-        >
-          <Parameter
-            label="String 1"
-            type="string"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-          <Parameter
-            label="String 2"
-            type="string"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-        </Pillar>
+          removeFromInv={v => this.props.removeFromInv(v)}
+          params={[
+            { label: "String 1", type: "string" },
+            { label: "String 2", type: "string" }
+          ]}
+        />
         <Pillar
           text="To String"
           onClick={params =>
             this.props.addItemsToInv({ value: params[0].value, type: "string" })
           }
-        >
-          <Parameter
-            label="Number"
-            type="number"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-        </Pillar>
-        <Pillar text="Split" onClick={params => this.splitString(params)}>
-          <Parameter
-            label="String"
-            type="string"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-          <Parameter
-            label="Position"
-            type="number"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-        </Pillar>
+          removeFromInv={v => this.props.removeFromInv(v)}
+          params={[{ label: "Number", type: "number" }]}
+        />
+        <Pillar
+          text="Split"
+          onClick={params => this.splitString(params)}
+          removeFromInv={v => this.props.removeFromInv(v)}
+          params={[
+            { label: "String", type: "string" },
+            { label: "Position", type: "number" }
+          ]}
+        />
       </Scene>
     );
   }
 
   splitString(params) {
-    console.log("in split");
-    console.log(params);
     var s = params[0].value;
     var pos = params[1].value;
 
-    console.log(s);
-    console.log(pos);
-
     var p1 = s.substring(0, pos);
     var p2 = s.substring(pos);
-
-    console.log(p1);
-    console.log(p2);
 
     this.props.addItemsToInv([
       { value: p1, type: "string" },
