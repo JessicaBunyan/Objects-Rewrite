@@ -12,6 +12,7 @@ still a lot of overlap in the render methods of room1 and room2. Can we move thi
     className (could be calculated above)
 
 
+
 placeholder images for other room
 
 
@@ -28,9 +29,19 @@ Text Boxes
     - manage state for these (flags)?
     - Pad out dialogue from notes
 
-Future Scenes
-    - decide final version of paintbrush puzzle
-    -  
+
+
+To Decide:
+- final version of colour puzzle
+    - Painting some things/using the colours is how you find out the password
+- How strings are generated - randomly? Or can user select? If so how does the UI look for this 
+- how do we get a specific number? Want to add this later on
+    - Mr ? transforms to ms #
+    - How does the UI work in terms of getting a number though - 
+        - 9 pillars?
+        - Pillar with a "dial" like a phone dial which you spin and whichever number is showing gets produced?
+
+
 
 param hitboxes overlap so lower ones will get dropped into more often - guesswe want to change hitbox size if there's a collision like this
 
@@ -38,7 +49,6 @@ animation timings aren't right for entering/exiting scene 2 now
 
 better animation for dropping the wrong param type. Looks super weird trying to put number into a colour
 
-bug with adding colour to inventory
 
 disable dragging for everything that shouldn't be draggable.
 disable text/img highlighting
