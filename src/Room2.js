@@ -23,7 +23,7 @@ export class Room2 extends Component {
         <Pillar
           text="Get String"
           onClick={() =>
-            this.props.addItemToInv({ value: "foo", type: "string" })
+            this.props.addItemsToInv({ value: "foo", type: "string" })
           }
         />
         <Avatar imgClassName={"question-mark"} />
@@ -45,7 +45,7 @@ export class Room2 extends Component {
         <Pillar
           text="Combine"
           onClick={params =>
-            this.props.addItemToInv({
+            this.props.addItemsToInv({
               value: params[0].value + params[1].value,
               type: "string"
             })
@@ -65,7 +65,7 @@ export class Room2 extends Component {
         <Pillar
           text="To String"
           onClick={params =>
-            this.props.addItemToInv({ value: params[0].value, type: "string" })
+            this.props.addItemsToInv({ value: params[0].value, type: "string" })
           }
         >
           <Parameter
@@ -105,7 +105,7 @@ export class Room2 extends Component {
     console.log(p1);
     console.log(p2);
 
-    this.props.addItemToInv([
+    this.props.addItemsToInv([
       { value: p1, type: "string" },
       { value: p2, type: "string" }
     ]);

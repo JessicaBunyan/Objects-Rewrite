@@ -58,14 +58,14 @@ export class Playground extends Component {
           previewImg={room1Preview}
           key={0}
           storyFlags={this.state.storyFlags}
-          addItemToInv={items => this.addItemToInv(items)}
+          addItemsToInv={items => this.addItemsToInv(items)}
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         />
         <Room2
           key={1}
           storyFlags={this.state.storyFlags}
-          addItemToInv={items => this.addItemToInv(items)}
+          addItemsToInv={items => this.addItemsToInv(items)}
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         />
@@ -74,7 +74,7 @@ export class Playground extends Component {
           key={3}
           active={this.state.activeRoom == 2}
           storyFlags={this.state.storyFlags}
-          addItemToInv={items => this.addItemToInv(items)}
+          addItemsToInv={items => this.addItemsToInv(items)}
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         >
@@ -111,7 +111,7 @@ export class Playground extends Component {
     );
   }
 
-  addItemToInv(items) {
+  addItemsToInv(items) {
     console.log(this.state.inv);
 
     if (!Array.isArray(items)) {

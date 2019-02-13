@@ -39,7 +39,7 @@ class Room1 extends Component {
         <Pillar
           text="Get Number"
           onClick={() =>
-            this.props.addItemToInv({ value: randInt(1, 9), type: "number" })
+            this.props.addItemsToInv({ value: randInt(1, 9), type: "number" })
           }
         />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
@@ -163,7 +163,7 @@ class Room1 extends Component {
         <Pillar
           text="Make Colour"
           onClick={params =>
-            this.props.addItemToInv({
+            this.props.addItemsToInv({
               value: _.map(params, p => p.value),
               type: "colour"
             })
