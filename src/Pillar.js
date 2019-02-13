@@ -28,6 +28,8 @@ export class Pillar extends Component {
   renderParam(p, index) {
     return (
       <Parameter
+        type={p.type}
+        label={p.label}
         updateState={v => this.updateParamVal(index, v)}
         hasVar={this.state.paramValues[index]}
         missingAnimation={
@@ -47,18 +49,7 @@ export class Pillar extends Component {
         <img className="postbox" src={postbox} />
         <div className="param-region">
           {React.Children.map(this.props.children, (child, index) => {
-            return React.cloneElement(
-              child,
-              {
-                updateState: v => this.updateParamVal(index, v),
-                hasVar: this.state.paramValues[index],
-                missingAnimation:
-                  !this.state.paramValues[index] && this.state.buttonPressFailed
-                    ? true
-                    : false
-              },
-              <Var var={this.state.paramValues[index]} />
-            );
+            return this.renderParam(child.props);
           })}
         </div>
 
