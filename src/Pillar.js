@@ -38,6 +38,7 @@ export class Pillar extends Component {
   renderParam(p, index) {
     return (
       <Parameter
+        key={index}
         type={p.type}
         label={p.label}
         updateState={v => this.updateParamVal(index, v)}
