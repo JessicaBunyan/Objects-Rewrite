@@ -95,6 +95,10 @@ export class Playground extends Component {
   tryOpenDoor(params) {
     console.log("door open tried with params: ");
     console.log(params);
+
+    if ((params[0].value = "foobar")) {
+      this.setStoryFlag(flags.playgroundComplete);
+    }
   }
 
   renderInventory() {
