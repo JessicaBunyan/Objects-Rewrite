@@ -105,6 +105,7 @@ class Room1 extends Component {
             this.props.setStoryFlag(flags.scene3Visible);
           }}
           params={[{ label: "Size", type: "number" }]}
+          removeFromInv={this.props.removeFromInv}
         />
         <Avatar img={square} width={squareWidth} imgClassName={"square"} />
         {dialog}
@@ -163,30 +164,19 @@ class Room1 extends Component {
               type: "colour"
             })
           }
-        >
-          <Parameter
-            type="number"
-            label="Red"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-          <Parameter
-            type="number"
-            label="Green"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-          <Parameter
-            type="number"
-            label="Blue"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-        </Pillar>
-        <Pillar text="Paint" onClick={c => this.paintScene3(c[0].value)}>
-          <Parameter
-            type="colour"
-            label="Colour"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-        </Pillar>
+          removeFromInv={v => this.props.removeFromInv(v)}
+          params={[
+            { type: "number", label: "Red" },
+            { type: "number", label: "Green" },
+            { type: "number", label: "Blue" }
+          ]}
+        />
+        <Pillar
+          text="Paint"
+          onClick={c => this.paintScene3(c[0].value)}
+          removeFromInv={v => this.props.removeFromInv(v)}
+          params={[{ type: "colour", label: "Colour" }]}
+        />
         <Avatar img={paintbrush} imgClassName={"paintbrush"} />
         {dialog}
       </Scene>
