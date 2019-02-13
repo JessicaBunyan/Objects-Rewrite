@@ -38,7 +38,9 @@ class Room1 extends Component {
       <Scene key={1}>
         <Pillar
           text="Get Number"
-          onClick={() => this.props.addItemToInv(randInt(1, 9))}
+          onClick={() =>
+            this.props.addItemToInv({ value: randInt(1, 9), type: "number" })
+          }
         />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
@@ -161,7 +163,10 @@ class Room1 extends Component {
         <Pillar
           text="Make Colour"
           onClick={params =>
-            this.props.addItemToInv(_.map(params, p => p.value), "colour")
+            this.props.addItemToInv({
+              value: _.map(params, p => p.value),
+              type: "colour"
+            })
           }
         >
           <Parameter

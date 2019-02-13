@@ -58,14 +58,14 @@ export class Playground extends Component {
           previewImg={room1Preview}
           key={0}
           storyFlags={this.state.storyFlags}
-          addItemToInv={(v, type) => this.addItemToInv(v, type)}
+          addItemToInv={items => this.addItemToInv(items)}
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         />
         <Room2
           key={1}
           storyFlags={this.state.storyFlags}
-          addItemToInv={(v, type) => this.addItemToInv(v, type)}
+          addItemToInv={items => this.addItemToInv(items)}
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         />
@@ -74,7 +74,7 @@ export class Playground extends Component {
           key={3}
           active={this.state.activeRoom == 2}
           storyFlags={this.state.storyFlags}
-          addItemToInv={(v, type) => this.addItemToInv(v, type)}
+          addItemToInv={items => this.addItemToInv(items)}
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         >
@@ -111,16 +111,23 @@ export class Playground extends Component {
     );
   }
 
-  addItemToInv(item, type = "number") {
+  addItemToInv(items) {
     console.log(this.state.inv);
-    var id = newVarId();
-    var variable = {
-      id: id,
-      type: type,
-      value: item
-    };
 
-    var newInv = [...this.state.inv, variable];
+    if (!Array.isArray(items)) {
+      items = [items];
+    }
+    var newVars = [];
+    items.forEach(item => {
+      var id = newVarId();
+      var variable = {
+        id: id,
+        type: item.type,
+        value: item.value
+      };
+      newVars.push(variable);
+    });
+    var newInv = [...this.state.inv, ...newVars];
 
     this.setState({ inv: newInv });
 
