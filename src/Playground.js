@@ -79,11 +79,12 @@ export class Playground extends Component {
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         >
-          <Pillar text="Open" onClick={params => this.tryOpenDoor(params)}>
-            <Parameter
-              label={"Password"}
-              type={"string"}
-              removeFromInv={v => this.removeFromInv(v)}
+          <Pillar
+            text="Open"
+            onClick={params => this.tryOpenDoor(params)}
+            removeFromInv={v => this.removeFromInv(v)}
+            params={[{ type: "string", label: "Password" }]}
+          >
             />
           </Pillar>
           <Avatar className="av-door" imgClassName={"door"} img={door} />
