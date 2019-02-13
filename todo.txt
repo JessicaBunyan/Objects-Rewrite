@@ -12,8 +12,14 @@ still a lot of overlap in the render methods of room1 and room2. Can we move thi
     className (could be calculated above)
 
 
+Can we rework pillar creation - each param needs to re-pass the removeFromInv props and the other props are just types. 
+- Maybe we just pass this into the pilar and it handles the rest
+
+
 
 placeholder images for other room
+Characters for the other room
+reorganise pillars in room2
 
 
 Better animations for scene transitions
@@ -37,6 +43,9 @@ To Decide:
 - How strings are generated - randomly? Or can user select? If so how does the UI look for this 
 - how do we get a specific number? Want to add this later on
     - Mr ? transforms to ms #
+        -What causes this? Something which happens in Mr ?s  scene?
+            - Must require us to bring something new, or have a new pillar appear- what's the trigger for these events
+        - Something outside?
     - How does the UI work in terms of getting a number though - 
         - 9 pillars?
         - Pillar with a "dial" like a phone dial which you spin and whichever number is showing gets produced?

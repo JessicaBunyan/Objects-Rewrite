@@ -6,12 +6,12 @@ import { Var } from "./Var";
 export class Pillar extends Component {
   constructor(props) {
     super(props);
-    var params = [];
+    var paramValues = [];
     for (var i = 0; i < React.Children.count(this.props.children); i++) {
-      params.push("");
+      paramValues.push("");
     }
     this.state = {
-      params: params,
+      paramValues: paramValues,
       buttonPressed: false,
       buttonPressFailed: false
     };
@@ -26,13 +26,13 @@ export class Pillar extends Component {
               child,
               {
                 updateState: v => this.updateParamVal(index, v),
-                hasVar: this.state.params[index],
+                hasVar: this.state.paramValues[index],
                 missingAnimation:
-                  !this.state.params[index] && this.state.buttonPressFailed
+                  !this.state.paramValues[index] && this.state.buttonPressFailed
                     ? true
                     : false
               },
-              <Var var={this.state.params[index]} />
+              <Var var={this.state.paramValues[index]} />
             );
           })}
         </div>
@@ -49,16 +49,16 @@ export class Pillar extends Component {
   }
 
   updateParamVal(index, val) {
-    const vals = this.state.params;
+    const vals = this.state.paramValues;
 
     console.log(vals);
 
     vals[index] = val;
-    this.setState({ params: vals });
+    this.setState({ paramValues: vals });
   }
 
   countParams() {
-    var params = this.state.params;
+    var params = this.state.paramValues;
     var count = 0;
     params.forEach(element => {
       if (element) {
@@ -81,11 +81,11 @@ export class Pillar extends Component {
     }
 
     console.log(React.Children.count(this.props.children));
-    console.log(this.state.params.length);
+    console.log(this.state.paramValues.length);
 
     if (React.Children.count(this.props.children) === this.countParams()) {
       console.log("correct args present, calling func with these params");
-      console.log(this.state.params);
+      console.log(this.state.paramValues);
       this.triggerOnClick();
     } else {
       this.setState({ buttonPressFailed: true });
@@ -98,7 +98,7 @@ export class Pillar extends Component {
 
   triggerOnClick() {
     this.setState({ buttonPressed: true });
-    this.props.onClick(this.state.params);
+    this.props.onClick(this.state.paramValues);
     this.resetParams();
     setTimeout(() => {
       this.setState({ buttonPressed: false });
@@ -110,6 +110,6 @@ export class Pillar extends Component {
     for (var i = 0; i < React.Children.count(this.props.children); i++) {
       params.push("");
     }
-    this.setState({ params: params });
+    this.setState({ paramValues: params });
   }
 }
