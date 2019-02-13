@@ -116,8 +116,6 @@ export class Playground extends Component {
   }
 
   addItemsToInv(items) {
-    console.log(this.state.inv);
-
     if (!Array.isArray(items)) {
       items = [items];
     }
@@ -141,8 +139,6 @@ export class Playground extends Component {
     }, 1); // timeout needed for css anmiations
   }
   removeFromInv(vId) {
-    console.log("in remoev item rfom inv: " + vId);
-    console.log(this.state.inv);
     let newInv = this.state.inv;
     newInv = _.reject(newInv, i => i.id == vId);
     this.setState({ inv: newInv });

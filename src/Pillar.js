@@ -20,15 +20,12 @@ export class Pillar extends Component {
 
   renderParams() {
     if (!this.props.params) {
-      console.log("no params");
       return null;
     }
 
     var paramJsx = [];
 
     this.props.params.forEach((p, index) => {
-      console.log("inn loop: ");
-      console.log(p);
       paramJsx.push(this.renderParam(p, index));
     });
 
@@ -75,8 +72,6 @@ export class Pillar extends Component {
   updateParamVal(index, val) {
     const vals = this.state.paramValues;
 
-    console.log(vals);
-
     vals[index] = val;
     this.setState({ paramValues: vals });
   }
@@ -99,13 +94,9 @@ export class Pillar extends Component {
     }
 
     if (!this.props.children) {
-      console.log("0 args required - calling func ");
       this.triggerOnClick();
       return;
     }
-
-    console.log(React.Children.count(this.props.children));
-    console.log(this.state.paramValues.length);
 
     if (React.Children.count(this.props.children) === this.countParams()) {
       console.log("correct args present, calling func with these params");

@@ -40,12 +40,6 @@ export class Parameter extends Component {
     var v = ev.dataTransfer.getData("objects/variable");
     v = JSON.parse(v);
 
-    console.log("in drop in param");
-    console.log(v);
-    console.log(v.id);
-
-    // var obj = varFac.reconstructVar(json)
-
     if (v.type == this.props.type) {
       this.props.removeFromInv(v.id);
       this.props.updateState(v);
