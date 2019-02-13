@@ -50,6 +50,7 @@ export class Playground extends Component {
   renderNav() {
     return (
       <Nav
+        key={0}
         setActiveScene={i => this.setState({ activeRoom: i })}
         activeScene={this.state.activeRoom}
         active={true}
@@ -71,7 +72,7 @@ export class Playground extends Component {
         />
 
         <Scene
-          key={3}
+          key={2}
           active={this.state.activeRoom == 2}
           storyFlags={this.state.storyFlags}
           addItemsToInv={items => this.addItemsToInv(items)}
@@ -84,7 +85,6 @@ export class Playground extends Component {
               type={"string"}
               removeFromInv={v => this.removeFromInv(v)}
             />
-            {/* <Parameter /> */}
           </Pillar>
           <Avatar className="av-door" imgClassName={"door"} img={door} />
         </Scene>
@@ -103,7 +103,10 @@ export class Playground extends Component {
 
   renderInventory() {
     return (
-      <Inventory visible={this.state.storyFlags[flags.inventoryVisible]}>
+      <Inventory
+        key={0}
+        visible={this.state.storyFlags[flags.inventoryVisible]}
+      >
         {this.state.inv.map((item, index) => {
           return <Var key={index} var={item} draggable={true} />;
         })}
