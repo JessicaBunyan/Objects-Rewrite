@@ -104,13 +104,8 @@ class Room1 extends Component {
             this.setState({ squareSize: params[0].value });
             this.props.setStoryFlag(flags.scene3Visible);
           }}
-        >
-          <Parameter
-            type="number"
-            label="Size"
-            removeFromInv={v => this.props.removeFromInv(v)}
-          />
-        </Pillar>
+          params={[{ label: "Size", type: "number" }]}
+        />
         <Avatar img={square} width={squareWidth} imgClassName={"square"} />
         {dialog}
       </Scene>

@@ -19,10 +19,20 @@ export class Pillar extends Component {
   }
 
   renderParams() {
+    if (!this.props.params) {
+      console.log("no params");
+      return null;
+    }
+
     var paramJsx = [];
+
     this.props.params.forEach((p, index) => {
-      paramJsx.push(this.renderParams(p, index));
+      console.log("inn loop: ");
+      console.log(p);
+      paramJsx.push(this.renderParam(p, index));
     });
+
+    return paramJsx;
   }
 
   renderParam(p, index) {
@@ -47,11 +57,7 @@ export class Pillar extends Component {
     return (
       <div className="pillar-region">
         <img className="postbox" src={postbox} />
-        <div className="param-region">
-          {React.Children.map(this.props.children, (child, index) => {
-            return this.renderParam(child.props);
-          })}
-        </div>
+        <div className="param-region">{this.renderParams()}</div>
 
         <Button
           pressed={this.state.buttonPressed}
