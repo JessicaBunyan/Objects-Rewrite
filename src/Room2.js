@@ -67,8 +67,39 @@ export class Room2 extends Component {
             removeFromInv={v => this.props.removeFromInv(v)}
           />
         </Pillar>
+        <Pillar text="Split" onClick={params => this.splitString(params)}>
+          <Parameter
+            label="String"
+            type="string"
+            removeFromInv={v => this.props.removeFromInv(v)}
+          />
+          <Parameter
+            label="Position"
+            type="number"
+            removeFromInv={v => this.props.removeFromInv(v)}
+          />
+        </Pillar>
       </Scene>
     );
+  }
+
+  splitString(params) {
+    console.log("in split");
+    console.log(params);
+    var s = params[0].value;
+    var pos = params[1].value;
+
+    console.log(s);
+    console.log(pos);
+
+    var p1 = s.substring(0, pos);
+    var p2 = s.substring(pos);
+
+    console.log(p1);
+    console.log(p2);
+
+    this.props.addItemToInv(p1, "string");
+    this.props.addItemToInv(p2, "string");
   }
 
   render() {
