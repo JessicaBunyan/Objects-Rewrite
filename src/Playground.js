@@ -22,6 +22,7 @@ var c = {
 
 var sFlags = {};
 sFlags[flags.room1Complete] = true;
+sFlags[flags.numberDialUnlocked] = true;
 
 export class Playground extends Component {
   constructor(props) {
