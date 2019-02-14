@@ -34,14 +34,16 @@ class Room1 extends Component {
   }
 
   renderScene1() {
+    var onClick = () =>
+      this.props.addItemsToInv({ value: randInt(1, 9), type: "number" });
+
+    if (this.props.storyFlags[flags.numberDialUnlocked]) {
+      onClick = () => this.props.addItemsToInv({ value: 1, type: "number" });
+    }
+
     return (
       <Scene key={1}>
-        <Pillar
-          text="Get Number"
-          onClick={() =>
-            this.props.addItemsToInv({ value: randInt(1, 9), type: "number" })
-          }
-        />
+        <Pillar text="Get Number" onClick={onClick} />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
           <h2>
