@@ -13,6 +13,7 @@ import { Parameter } from "./Parameter";
 import { Avatar } from "./Avatar";
 import { Nav } from "./Nav";
 import door from "./img/door.png";
+import { MethodGroup } from "./MethodGroup";
 
 var c = {
   id: 999,
@@ -80,14 +81,13 @@ export class Playground extends Component {
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         >
-          <Pillar
-            text="Open"
-            onClick={params => this.tryOpenDoor(params)}
-            removeFromInv={v => this.removeFromInv(v)}
-            params={[{ type: "string", label: "Password" }]}
-          >
+          <MethodGroup removeFromInv={v => this.removeFromInv(v)}>
+            <Pillar
+              text="Open"
+              onClick={params => this.tryOpenDoor(params)}
+              params={[{ type: "string", label: "Password" }]}
             />
-          </Pillar>
+          </MethodGroup>
           <Avatar className="av-door" imgClassName={"door"} img={door} />
         </Scene>
       </Nav>

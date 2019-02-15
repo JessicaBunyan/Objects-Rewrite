@@ -8,6 +8,7 @@ import { Avatar } from "./Avatar";
 import { Scene } from "./Scene";
 import { TextBox } from "./TextBox";
 import { Parameter } from "./Parameter";
+import { MethodGroup } from "./MethodGroup";
 
 export class Room2 extends Component {
   constructor(props) {
@@ -20,12 +21,14 @@ export class Room2 extends Component {
   renderScene1() {
     return (
       <Scene key={1}>
-        <Pillar
-          text="Get String"
-          onClick={() =>
-            this.props.addItemsToInv({ value: "foo", type: "string" })
-          }
-        />
+        <MethodGroup removeFromInv={this.props.removeFromInv}>
+          <Pillar
+            text="Get String"
+            onClick={() =>
+              this.props.addItemsToInv({ value: "foo", type: "string" })
+            }
+          />
+        </MethodGroup>
         <Avatar imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
           <h2>
@@ -42,37 +45,39 @@ export class Room2 extends Component {
   renderScene2() {
     return (
       <Scene key={2}>
-        <Pillar
-          text="Combine"
-          onClick={params =>
-            this.props.addItemsToInv({
-              value: params[0].value + params[1].value,
-              type: "string"
-            })
-          }
-          removeFromInv={v => this.props.removeFromInv(v)}
-          params={[
-            { label: "String 1", type: "string" },
-            { label: "String 2", type: "string" }
-          ]}
-        />
-        <Pillar
-          text="To String"
-          onClick={params =>
-            this.props.addItemsToInv({ value: params[0].value, type: "string" })
-          }
-          removeFromInv={v => this.props.removeFromInv(v)}
-          params={[{ label: "Number", type: "number" }]}
-        />
-        <Pillar
-          text="Split"
-          onClick={params => this.splitString(params)}
-          removeFromInv={v => this.props.removeFromInv(v)}
-          params={[
-            { label: "String", type: "string" },
-            { label: "Position", type: "number" }
-          ]}
-        />
+        <MethodGroup removeFromInv={this.props.removeFromInv}>
+          <Pillar
+            text="Combine"
+            onClick={params =>
+              this.props.addItemsToInv({
+                value: params[0].value + params[1].value,
+                type: "string"
+              })
+            }
+            params={[
+              { label: "String 1", type: "string" },
+              { label: "String 2", type: "string" }
+            ]}
+          />
+          <Pillar
+            text="To String"
+            onClick={params =>
+              this.props.addItemsToInv({
+                value: params[0].value,
+                type: "string"
+              })
+            }
+            params={[{ label: "Number", type: "number" }]}
+          />
+          <Pillar
+            text="Split"
+            onClick={params => this.splitString(params)}
+            params={[
+              { label: "String", type: "string" },
+              { label: "Position", type: "number" }
+            ]}
+          />
+        </MethodGroup>
       </Scene>
     );
   }

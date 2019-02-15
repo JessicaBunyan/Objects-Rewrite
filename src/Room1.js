@@ -106,15 +106,16 @@ class Room1 extends Component {
 
     return (
       <Scene key={2}>
-        <Pillar
-          text="Set Size"
-          onClick={params => {
-            this.setState({ squareSize: params[0].value });
-            this.props.setStoryFlag(flags.scene3Visible);
-          }}
-          params={[{ label: "Size", type: "number" }]}
-          removeFromInv={this.props.removeFromInv}
-        />
+        <MethodGroup removeFromInv={this.props.removeFromInv}>
+          <Pillar
+            text="Set Size"
+            onClick={params => {
+              this.setState({ squareSize: params[0].value });
+              this.props.setStoryFlag(flags.scene3Visible);
+            }}
+            params={[{ label: "Size", type: "number" }]}
+          />
+        </MethodGroup>
         <Avatar img={square} width={squareWidth} imgClassName={"square"} />
         {dialog}
       </Scene>
@@ -164,27 +165,27 @@ class Room1 extends Component {
     var dialog = this.renderScene3Dialog();
     return (
       <Scene key={3} bgColour={this.state.bgColour} bgImage={paintSquiggle}>
-        <Pillar
-          text="Make Colour"
-          onClick={params =>
-            this.props.addItemsToInv({
-              value: _.map(params, p => p.value),
-              type: "colour"
-            })
-          }
-          removeFromInv={v => this.props.removeFromInv(v)}
-          params={[
-            { type: "number", label: "Red" },
-            { type: "number", label: "Green" },
-            { type: "number", label: "Blue" }
-          ]}
-        />
-        <Pillar
-          text="Paint"
-          onClick={c => this.paintScene3(c[0].value)}
-          removeFromInv={v => this.props.removeFromInv(v)}
-          params={[{ type: "colour", label: "Colour" }]}
-        />
+        <MethodGroup removeFromInv={v => this.props.removeFromInv(v)}>
+          <Pillar
+            text="Make Colour"
+            onClick={params =>
+              this.props.addItemsToInv({
+                value: _.map(params, p => p.value),
+                type: "colour"
+              })
+            }
+            params={[
+              { type: "number", label: "Red" },
+              { type: "number", label: "Green" },
+              { type: "number", label: "Blue" }
+            ]}
+          />
+          <Pillar
+            text="Paint"
+            onClick={c => this.paintScene3(c[0].value)}
+            params={[{ type: "colour", label: "Colour" }]}
+          />
+        </MethodGroup>
         <Avatar img={paintbrush} imgClassName={"paintbrush"} />
         {dialog}
       </Scene>
