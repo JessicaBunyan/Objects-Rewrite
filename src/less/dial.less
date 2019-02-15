@@ -1,6 +1,16 @@
+@import "variables.less";
+
+.dial-arrow {
+  display: inline-block;
+  height: @dialHeight;
+  width: 40px;
+  text-align: center;
+}
+
 .dial {
+  display: inline-block;
   width: 300px;
-  height: 100px;
+  height: @dialHeight;
   perspective: 500px;
 
   .face {
@@ -8,11 +18,11 @@
     display: inline-block;
     width: 100px;
     transform-origin: 50% 50% 100px;
-    height: 100px;
+    height: @dialHeight;
     color: white;
     font-size: 28px;
     text-align: center;
-    line-height: 100px;
+    line-height: @dialHeight;
   }
 
   .face-current {

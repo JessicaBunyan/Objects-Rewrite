@@ -45,10 +45,36 @@ export class Dial extends Component {
 
     return (
       <div className="dial-container">
-        <div className="dial-arrow left">L</div>
+        <div className="dial-arrow left" onClick={() => this.decrement()}>
+          L
+        </div>
         <div className="dial">{faces}</div>
-        <div className="dial-arrow right">R</div>
+        <div className="dial-arrow right" onClick={() => this.increment()}>
+          R
+        </div>
       </div>
     );
+  }
+
+  decrement() {
+    var newVal;
+    if (this.state.active == 0) {
+      newVal = this.props.values.length - 1;
+    } else {
+      newVal = this.state.active - 1;
+    }
+
+    this.setState({ active: newVal });
+  }
+
+  increment() {
+    var newVal;
+    if (this.state.active == this.props.values.length - 1) {
+      newVal = 0;
+    } else {
+      newVal = this.state.active + 1;
+    }
+
+    this.setState({ active: newVal });
   }
 }
