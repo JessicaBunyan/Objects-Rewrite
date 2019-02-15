@@ -19,7 +19,7 @@ export class Scene extends Component {
         }}
         onClick={() => this.props.onClick()}
       >
-        {this.props.children}
+        <div className="pillars-region">{this.props.children}</div>
 
         <SceneFooter action={this.props.deactivate} />
       </div>

@@ -54,7 +54,7 @@ export class Pillar extends Component {
 
   render() {
     return (
-      <div className="pillar-region">
+      <div className="pillar-container">
         <img className="postbox" src={postbox} />
         <div className="param-region">{this.renderParams()}</div>
 
