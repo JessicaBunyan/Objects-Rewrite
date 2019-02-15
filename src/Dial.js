@@ -24,7 +24,13 @@ export class Dial extends Component {
         if (index == active + 1) {
           cName += "face-next";
         } else {
-          cName += "hidden";
+          if (index == active - 2) {
+            cName += "face-far-left";
+          } else {
+            if (index == active + 2) {
+              cName += "face-far-right";
+            }
+          }
         }
       }
     }
@@ -48,7 +54,9 @@ export class Dial extends Component {
         <div className="dial-arrow left" onClick={() => this.decrement()}>
           L
         </div>
-        <div className="dial">{faces}</div>
+        <div className="dial">
+          <div className="dial-mask">{faces}</div>
+        </div>
         <div className="dial-arrow right" onClick={() => this.increment()}>
           R
         </div>
