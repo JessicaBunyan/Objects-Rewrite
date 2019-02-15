@@ -9,6 +9,12 @@ exports[`Button failpressed renders correctly 1`] = `
     text
   </h2>
 </div>
+------------HTML PREVIEW---------------
+<div class=" button  fail-pressed">
+  <h2>
+    text
+  </h2>
+</div>
 `;
 
 exports[`Button no activity renders correctly 1`] = `
@@ -20,6 +26,12 @@ exports[`Button no activity renders correctly 1`] = `
     text
   </h2>
 </div>
+------------HTML PREVIEW---------------
+<div class=" button ">
+  <h2>
+    text
+  </h2>
+</div>
 `;
 
 exports[`Button pressed renders correctly 1`] = `
@@ -27,6 +39,12 @@ exports[`Button pressed renders correctly 1`] = `
   className=" button  pressed "
   onClick={[Function]}
 >
+  <h2>
+    text
+  </h2>
+</div>
+------------HTML PREVIEW---------------
+<div class=" button  pressed ">
   <h2>
     text
   </h2>
@@ -43,12 +61,28 @@ exports[`SceneFooter renders correctly 1`] = `
     src="back-chevron.png"
   />
 </div>
+------------HTML PREVIEW---------------
+<div class="footer">
+  <img
+    class="back-chevron"
+    src="back-chevron.png"
+  >
+</div>
 `;
 
 exports[`TextBox renders correctly 1`] = `
 <div
   className=" text-box d1"
 >
+  <h2>
+    Test
+  </h2>
+  <h3>
+    textbox
+  </h3>
+</div>
+------------HTML PREVIEW---------------
+<div class=" text-box d1">
   <h2>
     Test
   </h2>
