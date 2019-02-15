@@ -1,0 +1,28 @@
+.dial {
+  width: 300px;
+  height: 100px;
+  perspective: 500px;
+
+  .face {
+    transition: all 0.5s;
+    display: inline-block;
+    width: 100px;
+    transform-origin: 50% 50% 100px;
+    height: 100px;
+  }
+
+  .face-current {
+    transform: none;
+    background: purple;
+  }
+
+  .face-prev {
+    // transform: rotate3d(0, 1, 0, 30deg);
+    transform: rotateY(-40deg) translateX(-68px);
+    background: green;
+  }
+  .face-next {
+    transform: rotateY(40deg) translateX(68px);
+    background: blue;
+  }
+}

@@ -21,6 +21,7 @@ import {
 import { TextBox } from "./TextBox";
 import flags from "./storyFlags";
 import SceneFooter from "./SceneFooter";
+import { Dial } from "./Dial";
 
 class Room1 extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Room1 extends Component {
 
     return (
       <Scene key={1}>
+        <Dial />
         <Pillar text="Get Number" onClick={onClick} />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
