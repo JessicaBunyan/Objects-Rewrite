@@ -14,27 +14,26 @@ export class Dial extends Component {
 
   renderFace(index) {
     var active = this.state.active;
+    var total = this.props.values.length - 1;
     var cName = "face ";
+
+    var next = active == total ? 0 : active + 1;
+    var next2 = active + 2 > total ? active + 1 - total : active + 2;
+    var prev = active == 0 ? total : active - 1;
+    var prev2 = active - 2 < 0 ? total + active - 1 : active - 2;
+
     if (index == active) {
       cName += "face-current";
+    } else if (index == next) {
+      cName += "face-next";
+    } else if (index == next2) {
+      cName += "face-far-right";
+    } else if (index == prev) {
+      cName += "face-prev";
+    } else if (index == prev2) {
+      cName += "face-far-left";
     } else {
-      if (index == active - 1) {
-        cName += "face-prev";
-      } else {
-        if (index == active + 1) {
-          cName += "face-next";
-        } else {
-          if (index == active - 2) {
-            cName += "face-far-left";
-          } else {
-            if (index == active + 2) {
-              cName += "face-far-right";
-            } else {
-              cName += "hidden";
-            }
-          }
-        }
-      }
+      cName += "hidden";
     }
 
     return <div className={cName}>{this.props.values[index]}</div>;
