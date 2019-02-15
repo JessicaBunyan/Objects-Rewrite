@@ -44,7 +44,7 @@ class Room1 extends Component {
 
     return (
       <Scene key={1}>
-        <Dial />
+        <Dial values={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />
         <Pillar text="Get Number" onClick={onClick} />
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
