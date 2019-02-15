@@ -58,8 +58,6 @@ export class Pillar extends Component {
     if (!this.props.dialValues) {
       return null;
     }
-    console.log("in redner dials");
-    console.log(this.state.paramValues);
     return (
       <Dial
         values={this.props.dialValues}
