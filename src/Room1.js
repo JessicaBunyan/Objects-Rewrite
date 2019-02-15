@@ -22,6 +22,7 @@ import { TextBox } from "./TextBox";
 import flags from "./storyFlags";
 import SceneFooter from "./SceneFooter";
 import { Dial } from "./Dial";
+import { MethodGroup } from "./MethodGroup";
 
 class Room1 extends Component {
   constructor(props) {
@@ -44,11 +45,11 @@ class Room1 extends Component {
 
     return (
       <Scene key={1}>
-        <Dial values={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />
-
-        <Pillar text="Get Number" onClick={onClick}>
-          <Dial values={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />
-        </Pillar>
+        <MethodGroup>
+          <Pillar text="Get Number" onClick={onClick}>
+            <Dial values={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />
+          </Pillar>
+        </MethodGroup>
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>
           <h2>

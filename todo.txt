@@ -1,5 +1,10 @@
 happy/sad paintbrush?
 
+
+NEED TO DO SOMETHING ABOUT PILLARS-REGION
+
+
+
 textboxes are still showing when not viewing a scene
 
 still a lot of overlap in the render methods of room1 and room2. Can we move this out somehow?
