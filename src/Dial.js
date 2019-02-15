@@ -54,13 +54,13 @@ export class Dial extends Component {
     return (
       <div className="dial-container">
         <div className="dial-arrow left" onClick={() => this.decrement()}>
-          L
+          <i class="fas fa-chevron-left" />
         </div>
         <div className="dial">
           <div className="dial-mask">{faces}</div>
         </div>
         <div className="dial-arrow right" onClick={() => this.increment()}>
-          R
+          <i class="fas fa-chevron-right" />
         </div>
       </div>
     );
