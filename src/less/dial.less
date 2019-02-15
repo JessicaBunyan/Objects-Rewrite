@@ -4,7 +4,9 @@
   display: inline-block;
   height: @dialHeight;
   width: 40px;
+  vertical-align: top;
   text-align: center;
+  line-height: @dialHeight;
 }
 .dial-container {
   position: absolute;
@@ -14,15 +16,16 @@
 
 .dial {
   display: inline-block;
-  width: 300px;
+  width: 110px;
   height: @dialHeight;
   perspective: 1000px;
 
   .face {
+    margin-left: 25px;
     transition: transform 0.5s;
     position: absolute;
     display: inline-block;
-    width: 80px;
+    width: 60px;
     height: @dialHeight;
     color: white;
     font-size: 28px;
@@ -40,19 +43,19 @@
   .face-prev {
     z-index: 45;
     // transform: rotate3d(0, 1, 0, 30deg);
-    transform: translateX(-58px) rotateY(-55deg);
+    transform: translateX(-45px) rotateY(-55deg);
   }
   .face-next {
     z-index: 45;
-    transform: translateX(58px) rotateY(55deg);
+    transform: translateX(45px) rotateY(55deg);
   }
   .face-far-left {
     z-index: 40;
-    transform: translateX(-76px) rotateY(-78deg);
+    transform: translateX(-62px) rotateY(-85deg);
   }
   .face-far-right {
     z-index: 40;
-    transform: translateX(76px) rotateY(78deg);
+    transform: translateX(62px) rotateY(85deg);
   }
 
   .hidden {

@@ -65,6 +65,7 @@ export class Pillar extends Component {
         >
           <h2>{this.props.text}</h2>
         </Button>
+        {this.props.children}
       </div>
     );
   }

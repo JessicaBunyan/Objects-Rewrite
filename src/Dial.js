@@ -29,6 +29,8 @@ export class Dial extends Component {
           } else {
             if (index == active + 2) {
               cName += "face-far-right";
+            } else {
+              cName += "hidden";
             }
           }
         }
