@@ -34,7 +34,11 @@ export class Dial extends Component {
       cName += "hidden";
     }
 
-    return <div className={cName}>{this.props.values[index]}</div>;
+    return (
+      <div key={index} className={cName}>
+        {this.props.values[index]}
+      </div>
+    );
   }
 
   renderFaces() {
@@ -51,13 +55,13 @@ export class Dial extends Component {
     return (
       <div className="dial-container">
         <div className="dial-arrow left" onClick={() => this.decrement()}>
-          <i class="fas fa-chevron-left" />
+          <i className="fas fa-chevron-left" />
         </div>
         <div className="dial">
           <div className="dial-mask">{faces}</div>
         </div>
         <div className="dial-arrow right" onClick={() => this.increment()}>
-          <i class="fas fa-chevron-right" />
+          <i className="fas fa-chevron-right" />
         </div>
       </div>
     );
