@@ -40,15 +40,17 @@ class Room1 extends Component {
       this.props.addItemsToInv({ value: randInt(1, 9), type: "number" });
 
     if (this.props.storyFlags[flags.numberDialUnlocked]) {
-      onClick = () => this.props.addItemsToInv({ value: 1, type: "number" });
+      onClick = p => this.props.addItemsToInv({ value: p, type: "number" });
     }
 
     return (
       <Scene key={1}>
         <MethodGroup>
-          <Pillar text="Get Number" onClick={onClick}>
-            <Dial values={[1, 2, 3, 4, 5, 6, 7, 8, 9]} />
-          </Pillar>
+          <Pillar
+            text="Get Number"
+            onClick={onClick}
+            dialValues={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+          />
         </MethodGroup>
         <Avatar img={questionMark} imgClassName={"question-mark"} />
         <TextBox className={" d1 "}>

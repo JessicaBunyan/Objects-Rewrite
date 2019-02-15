@@ -8,12 +8,10 @@ import { combineRenders } from "./utils";
 export class Dial extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { active: 2 };
   }
 
   renderFace(index) {
-    var active = this.state.active;
+    var active = this.props.active;
     var total = this.props.values.length - 1;
     var cName = "face ";
 
@@ -67,23 +65,23 @@ export class Dial extends Component {
 
   decrement() {
     var newVal;
-    if (this.state.active == 0) {
+    if (this.props.active == 0) {
       newVal = this.props.values.length - 1;
     } else {
-      newVal = this.state.active - 1;
+      newVal = this.props.active - 1;
     }
 
-    this.setState({ active: newVal });
+    this.props.setValue(newVal);
   }
 
   increment() {
     var newVal;
-    if (this.state.active == this.props.values.length - 1) {
+    if (this.props.active == this.props.values.length - 1) {
       newVal = 0;
     } else {
-      newVal = this.state.active + 1;
+      newVal = this.props.active + 1;
     }
 
-    this.setState({ active: newVal });
+    this.props.setValue(newVal);
   }
 }

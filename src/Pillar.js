@@ -3,6 +3,7 @@ import postbox from "./img/postboxGrey.png";
 import { Button } from "./Button";
 import { Var } from "./Var";
 import { Parameter } from "./Parameter";
+import { Dial } from "./Dial";
 
 export class Pillar extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export class Pillar extends Component {
     }
     this.state = {
       paramValues: paramValues,
+      dialIndex: 1,
       buttonPressed: false,
       buttonPressFailed: false
     };
@@ -52,11 +54,27 @@ export class Pillar extends Component {
     );
   }
 
+  renderDials() {
+    if (!this.props.dialValues) {
+      return null;
+    }
+    console.log("in redner dials");
+    console.log(this.state.paramValues);
+    return (
+      <Dial
+        values={this.props.dialValues}
+        active={this.state.dialIndex}
+        setValue={val => this.setState({ dialIndex: val })}
+      />
+    );
+  }
+
   render() {
     return (
       <div className="pillar-container">
         <img className="postbox" src={postbox} />
         <div className="param-region">{this.renderParams()}</div>
+        {this.renderDials()}
 
         <Button
           pressed={this.state.buttonPressed}
@@ -114,7 +132,14 @@ export class Pillar extends Component {
 
   triggerOnClick() {
     this.setState({ buttonPressed: true });
-    this.props.onClick(this.state.paramValues);
+
+    var vals = [...this.state.paramValues];
+
+    if (this.props.dialValues) {
+      vals.push(this.props.dialValues[this.state.dialIndex]);
+    }
+
+    this.props.onClick(vals);
     this.resetParams();
     setTimeout(() => {
       this.setState({ buttonPressed: false });
