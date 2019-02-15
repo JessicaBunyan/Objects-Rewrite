@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button failpressed renders correctly 1`] = `
+<div
+  className=" button  fail-pressed"
+  onClick={[Function]}
+>
+  <h2>
+    text
+  </h2>
+</div>
+`;
+
+exports[`Button no activity renders correctly 1`] = `
+<div
+  className=" button "
+  onClick={[Function]}
+>
+  <h2>
+    text
+  </h2>
+</div>
+`;
+
+exports[`Button pressed renders correctly 1`] = `
+<div
+  className=" button  pressed "
+  onClick={[Function]}
+>
+  <h2>
+    text
+  </h2>
+</div>
+`;
+
+exports[`SceneFooter renders correctly 1`] = `
+<div
+  className="footer"
+  onClick={[Function]}
+>
+  <img
+    className="back-chevron"
+    src="back-chevron.png"
+  />
+</div>
+`;
+
+exports[`TextBox renders correctly 1`] = `
+<div
+  className=" text-box d1"
+>
+  <h2>
+    Test
+  </h2>
+  <h3>
+    textbox
+  </h3>
+</div>
+`;
