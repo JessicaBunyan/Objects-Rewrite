@@ -93,7 +93,7 @@ export class Pillar extends Component {
     this.setState({ paramValues: vals });
   }
 
-  countParams() {
+  countPresentParams() {
     var params = this.state.paramValues;
     var count = 0;
     params.forEach(element => {
@@ -110,12 +110,12 @@ export class Pillar extends Component {
       return;
     }
 
-    if (!this.props.children) {
+    if (!this.props.params) {
       this.triggerOnClick();
       return;
     }
 
-    if (React.Children.count(this.props.children) === this.countParams()) {
+    if (this.props.params.length === this.countPresentParams()) {
       console.log("correct args present, calling func with these params");
       console.log(this.state.paramValues);
       this.triggerOnClick();
