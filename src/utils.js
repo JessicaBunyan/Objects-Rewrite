@@ -13,10 +13,11 @@ function scaleInt(num) {
 }
 
 export function getTearDropImgSource(colourCode) {
+  colourCode = colourCode.replace("#", `%23`);
   return (
     'data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 42">        <path fill="' +
     colourCode +
-    '" stroke="#000" stroke-width="1.5" d="M15 3&#10;  Q16.5 6.8 25 18&#10;  A12.8 12.8 0 1 1 5 18&#10;  Q13.5 6.8 15 3z"/>      </svg>'
+    '" stroke="black" stroke-width="1.5" d="M15 3 Q16.5 6.8 25 18 A12.8 12.8 0 1 1 5 18 Q13.5 6.8 15 3z"/>      </svg>'
   );
 }
 
