@@ -22,9 +22,10 @@ export class Room3 extends Component {
       <Pillar
         params={[
           { type: "colour", label: "Sky" },
-          { type: "colour", label: "trees" },
-          { type: "colour", label: "flowers" }
+          { type: "colour", label: "Trees" },
+          { type: "colour", label: "Flowers" }
         ]}
+        onClick={params => this.paintPicture(params)}
       />
     );
     return (
@@ -39,6 +40,10 @@ export class Room3 extends Component {
         </TextBox>
       </Scene>
     );
+  }
+
+  paintPicture(params) {
+    //TODO
   }
 
   render() {
