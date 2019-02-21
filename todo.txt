@@ -1,9 +1,6 @@
 happy/sad paintbrush?
 
 
-
-
-
 textboxes are still showing when not viewing a scene
 
 still a lot of overlap in the render methods of room1 and room2. Can we move this out somehow?
@@ -35,22 +32,6 @@ Text Boxes
     - Make text appear as if its being written /scrolling
     - manage state for these (flags)?
     - Pad out dialogue from notes
-
-
-
-To Decide:
-- final version of colour puzzle
-    - Painting some things/using the colours is how you find out the password
-- How strings are generated - randomly? Or can user select? If so how does the UI look for this 
-- how do we get a specific number? Want to add this later on
-    - Mr ? transforms to ms #
-        -What causes this? Something which happens in Mr ?s  scene?
-            - Must require us to bring something new, or have a new pillar appear- what's the trigger for these events
-        - Something outside?
-    - How does the UI work in terms of getting a number though - 
-        - 9 pillars?
-        - Pillar with a "dial" like a phone dial which you spin and whichever number is showing gets produced?
-
 
 
 param hitboxes overlap so lower ones will get dropped into more often - guesswe want to change hitbox size if there's a collision like this

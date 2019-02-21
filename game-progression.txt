@@ -1,0 +1,22 @@
+Broad puzzle progression direction:
+
+Room1 - intro room. mr ?, mr square and mr paintbrush. possible visit mr square first for exposition
+Room2 - strings room. -  basic string puzzle - split + combine strings, + number strings?
+    Somewhere alog the way unlock ms #
+Room3 - Colour puzzle room
+    - Paint a landscape - unlocks scene 2 
+    - Scene 2 is something - gives clue about how to repaint scene1
+    - Re-paint the landscape in different colours (red/black/white I'm thinking) to reveal password
+
+With password return to room 2 to create the string then go to the door.
+
+
+
+mr paintbrush in room 1 is a bit rendundant atm. Maybe just like mr ? changes everyone in room1 changes 
+    - paintbrush is learning to colour between the lines / paint an actual scene
+
+
+
+To Decide:
+- How strings are generated - randomly? Or can user select? If so how does the UI look for this 
+    -What causes Mr ? to transform to ms #? Something which happens in Mr ?s  scene? or elsewhere - in room2?
