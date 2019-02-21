@@ -14,6 +14,7 @@ import { Avatar } from "./Avatar";
 import { Nav } from "./Nav";
 import door from "./img/door.png";
 import { MethodGroup } from "./MethodGroup";
+import { Room3 } from "./Room3";
 
 var c = {
   id: 999,
@@ -71,9 +72,16 @@ export class Playground extends Component {
           removeFromInv={vId => this.removeFromInv(vId)}
           setStoryFlag={f => this.setStoryFlag(f)}
         />
+        <Room3
+          key={2}
+          storyFlags={this.state.storyFlags}
+          addItemsToInv={items => this.addItemsToInv(items)}
+          removeFromInv={vId => this.removeFromInv(vId)}
+          setStoryFlag={f => this.setStoryFlag(f)}
+        />
 
         <Scene
-          key={2}
+          key={3}
           active={this.state.activeRoom == 2}
           storyFlags={this.state.storyFlags}
           addItemsToInv={items => this.addItemsToInv(items)}
